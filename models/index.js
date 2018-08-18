@@ -19,6 +19,7 @@ if (config.use_env_variable) {
   );
 }
 
+// Example code
 fs.readdirSync(__dirname)
   .filter(function(file) {
     return (

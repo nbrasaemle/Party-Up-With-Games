@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "exampledb",
+    "password": "Tardis1011",
+    "database": "gamefinder_db",
     "host": "localhost",
     "dialect": "mysql"
   },
