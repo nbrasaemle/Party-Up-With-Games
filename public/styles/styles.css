@@ -1,3 +1,40 @@
 .list-group-item {
   line-height: 2.5;
 }
+/* Backgrounds */
+.bkgd {
+  background-image: url("../images/darkness.png");
+}
+body {
+  background-image: url("../images/what-the-hex-dark.png");
+}
+/* Font Styling: */
+.font, h3 {
+  font-family: 'Neuton', serif;
+}
+
+.fontTwo {
+  font-family: 'Lato', sans-serif;
+}
+
+h3, h4, .font {
+  text-align: center;
+  color:cornsilk;
+}
+
+/* Aligning */
+.col-sm-4 {
+  text-align: center;
+}
+
+
+/* Footer */
+.footer{
+  color: white;
+	text-align:center;
+	line-height:1.5;
+	padding: 15px;
+	font-size:12px;
+	border-top: solid 2px rgb(152, 165, 160);
+	margin-top: 20px;
+}
