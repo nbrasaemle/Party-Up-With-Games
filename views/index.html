@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game On!</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato|Neuton" rel="stylesheet">
+    <!-- Bootstrap and CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/styles/styles.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand fontTwo" href="index.html">Game On!</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link fontTwo" href="index.html">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fontTwo" href="">Game Library</a>
+                </li>
+                <li class="nav-item font">
+                    <a class="nav-link" href="">Profile</a>
+                </li>
+                <!-- <li class="nav-item font">
+              <a class="nav-link disabled" href=""></a>
+            </li> -->
+            </ul>
+        </div>
+    </nav>
+
+    <div class="jumbotron jumbotron-fluid bkgd ">
+        <div class="container">
+            <h1 class="display-3 font j">Party Up</h1>
+            <h2 class="font j">With Games!</h2>
+            <!-- <p class="lead fontTwo">Game-Finder is a place to create a </p> -->
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Login</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">If you already have an account!</h6>
+                        <form>
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            </div>
+                       
+                            <button type="button" class="btn btn-primary fontTwo">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <h3>Search games to play:</h3>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control fontTwo" id="gameSearch" aria-describedby="gameSearch" placeholder="Search a game">
+                    </div>
+                    <button type="button" class="btn btn-primary fontTwo">Search</button>
+                </form>
+            </div>
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Sign Up!</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">If you do not have an account</h6>
+                        <form>
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="email" class="form-control email" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            </div>
+                           
+                            <button type="button" class="btn btn-primary fontTwo">Submit</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 fontTwo" id="searchHidden">
+                <h4>Cards or options in the space below of the search or no search and just options</h4>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar justify-content-center navbar-dark bg-dark footer">
+        <p class="navbar-brand" id="copyright">
+            <p>Built by:</p>
+            <p>
+                <a class="author" href="https://github.com/aideed4" target="_blank"> Abdullahi Aideed,</a>
+            </p>
+            <p>
+                <a class="author" href="https://github.com/becoskie" target="_blank"> Ray Becoskie,</a>
+            </p>
+            <p>
+                <a class="author" href="https://github.com/nbrasaemle" target="_blank"> Nicole Brasaemle</a>
+            </p>
+            <p>and</p>
+            <p>
+                <a class="author" href="https://github.com/awvala" target="_blank"> Andrew Vala</a>&nbsp;|&nbsp;&copy;2018</p>
+        </p>
+    </nav>
+
+    <!-- Script links -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="../../public/js/index.js"></script>
+</body>
+
+</html>
