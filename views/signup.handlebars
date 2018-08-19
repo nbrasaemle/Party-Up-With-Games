@@ -1,0 +1,32 @@
+<div class="container">
+    <form class="bg-dark text-white mt-5" id="signup" name="signup" method="post" action="/signup">
+        <div class="form-group">
+            <label for="username">Create Username</label>
+            <input type="text" class="form-control" id="username" aria-describedby="usernameHelp" placeholder="Choose username">
+        </div>
+        <div class="form-group">
+            <label for="password1">Password</label>
+            <input type="password" class="form-control" id="password1" placeholder="Create Password">
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="gender" id="noCare" value="nope" checked>
+            <label class="form-check-label" for="noCare">
+                Don't care
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="gender" id="boy" value="male">
+            <label class="form-check-label" for="boy">
+                boy
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="gender" id="girl" value="female">
+            <label class="form-check-label" for="girl">
+                girl
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>

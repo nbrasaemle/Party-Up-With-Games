@@ -1,3 +1,6 @@
+-- Ray Changed Create Table 'users' uo 'user' sequilize plurls.
+-- Also added password to users. 
+
 DROP DATABASE IF EXISTS exampledb;
 CREATE DATABASE exampledb;
 
@@ -21,9 +24,10 @@ CREATE TABLE game_library (
 );   
 
 -- Created users table to store all user id's and player avatar images.
-CREATE TABLE users (
+CREATE TABLE user (
 	user_id INT AUTO_INCREMENT,
     username VARCHAR (25) NOT NULL,
+    password VARCHAR (25) NOT NULL,
     user_img VARCHAR (255) DEFAULT "http://downloadicons.net/sites/default/files/red-dragon-icon-49331.png",
     PRIMARY KEY(user_id)
     );
