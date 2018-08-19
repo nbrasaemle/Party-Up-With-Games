@@ -1,5 +1,7 @@
 require("dotenv").config();
 var express = require("express");
+var passport = require("passport");
+var session = require("express-session");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 
@@ -13,6 +15,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
+// For Passport
+
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
 // Handlebars
 app.engine(
   "handlebars",
@@ -22,9 +32,25 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+//Models
+var models = require("./models");
+//Sync Database
+models.sequelize
+  .sync()
+  .then(function() {
+    console.log("Nice! Database looks fine");
+  })
+  .catch(function(err) {
+    console.log(err, "Something went wrong with the Database Update!");
+  });
+
 // Routes
+var authRoute = require("./routes/auth.js")(app, passport);
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
+
+//load passport strategies
+require("./config/passport/passport.js")(passport, models.user);
 
 var syncOptions = { force: false };
 
