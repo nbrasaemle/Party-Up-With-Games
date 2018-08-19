@@ -1,5 +1,6 @@
--- Ray Changed Create Table 'users' uo 'user' sequilize plurls.
+-- Ray changed create table users to user sequilize plurls.
 -- Also added password to users. 
+-- Moved schema out of the models folder
 
 DROP DATABASE IF EXISTS exampledb;
 CREATE DATABASE exampledb;
