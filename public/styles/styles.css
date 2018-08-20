@@ -29,7 +29,9 @@ h3, h4, .font {
 .col-sm-4 {
   text-align: center;
 }
-
+.nav-btn{
+  margin:5px;
+}
 
 /* Footer */
 .footer{
@@ -41,6 +43,7 @@ h3, h4, .font {
 	border-top: solid 2px rgb(152, 165, 160);
 	margin-top: 20px;
 }
+
 
 /*Map CSS*/
 HTML {
@@ -59,7 +62,7 @@ HTML {
   max-height: 400px;
 }
 
-.labelStyle{
+/* .labelStyle{
   font: 400 34px 'Catamaran', sans-serif;
   font-weight: bold!important;
-}
+} */
