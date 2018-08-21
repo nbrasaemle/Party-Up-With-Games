@@ -3,7 +3,7 @@
 }
 /* Backgrounds */
 .bkgd {
-  background-image: url("../images/darkness.png");
+  background-image: url("../images/what-the-hex.png"); 
 }
 body {
   background-image: url("../images/what-the-hex-dark.png");
@@ -21,12 +21,17 @@ h3, h4, .font {
   text-align: center;
   color:cornsilk;
 }
-
+.j {
+  color:rgba(33, 130, 247, 1.0);
+  text-align: center;
+}
 /* Aligning */
 .col-sm-4 {
   text-align: center;
 }
-
+.nav-btn{
+  margin:5px;
+}
 
 /* Footer */
 .footer{
@@ -38,3 +43,26 @@ h3, h4, .font {
 	border-top: solid 2px rgb(152, 165, 160);
 	margin-top: 20px;
 }
+
+
+/*Map CSS*/
+HTML {
+  min-height: 100%;
+}
+
+.list-group-item {
+  line-height: 2.5;
+}
+.form-row {
+  width: 800px;
+}
+
+#map {
+  min-height: 200px;
+  max-height: 400px;
+}
+
+/* .labelStyle{
+  font: 400 34px 'Catamaran', sans-serif;
+  font-weight: bold!important;
+} */

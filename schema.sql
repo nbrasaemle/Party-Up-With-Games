@@ -3,6 +3,9 @@ DROP DATABASE IF EXISTS gamefinder_db;
 -- Creates the "gamefinder_db" database --
 CREATE DATABASE IF NOT EXISTS gamefinder_db;
 
+
+-- The Schema and Seed below has been deprecated.  
+-- Leaving this here as a reference for the moment.
 use gamefinder_db;
 
 -- Created the table "game_library" to store values for a game dropdown field" 
@@ -16,9 +19,10 @@ CREATE TABLE game_library (
 );   
 
 -- Created users table to store all user id's and player avatar images.
-CREATE TABLE users (
+CREATE TABLE user (
 	user_id INT AUTO_INCREMENT,
     username VARCHAR (25) NOT NULL,
+    password VARCHAR (25) NOT NULL,
     user_img VARCHAR (255) DEFAULT "http://downloadicons.net/sites/default/files/red-dragon-icon-49331.png",
     PRIMARY KEY(user_id)
     );
