@@ -1,20 +1,24 @@
-module.exports = function(sequelize, DataTypes) {
-    var users_games = sequelize.define("users_games", {
-      user_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-            notNull: true
-        }
-      },
-      hosted_gameid: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-            notNull: true
-        }
-      }
+module.exports = function (sequelize, DataTypes) {
+    var Users_games = sequelize.define("Users_games", {
+
     });
-    
-    return users_games;
-  };
+
+    // Relations
+    Users_games.associate = function (models) {
+        Users_games.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
+
+    Users_games.associate = function (models) {
+        Users_games.belongsTo(models.Hosted_games, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
+
+    return Users_games;
+};

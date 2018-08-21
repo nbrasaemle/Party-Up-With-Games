@@ -1,14 +1,12 @@
 module.exports = function (sequelize, DataTypes) {
-    var hosted_games = sequelize.define("hosted_games", {
-        gamed_master: {
-            type: DataTypes.STRING(100),
-            allowNull: false,
-            validate: {
-                notNull: true
-            }
+    var Hosted_games = sequelize.define("Hosted_games", {
+        hosted_gameid: {
+            type: DataTypes.INTEGER(10),
+            primaryKey: true,
+            autoIncrement: true
         },
-        game_master_userid: {
-            type: DataTypes.INTEGER,
+        game_master: {
+            type: DataTypes.STRING(100),
             allowNull: false,
             validate: {
                 notNull: true
@@ -16,13 +14,6 @@ module.exports = function (sequelize, DataTypes) {
         },
         party_name: {
             type: DataTypes.STRING(100),
-            allowNull: false,
-            validate: {
-                notNull: true
-            }
-        },
-        game_id: {
-            type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
                 notNull: true
@@ -50,7 +41,7 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         description: {
-            type: DataTypes.MEDIUMTEXT,
+            type: DataTypes.TEXT("long"),
         },
         player_exp_level: {
             type: DataTypes.STRING(20),
@@ -83,5 +74,30 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
-    return hosted_games;
+    // Relations
+    Hosted_games.associate = function (models) {
+        Hosted_games.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
+
+    Hosted_games.associate = function (models) {
+        Hosted_games.belongsTo(models.Gamelibrary, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
+
+    Hosted_games.associate = function (models) {
+        Hosted_games.hasMany(models.Users_games, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
+
+    return Hosted_games;
 };

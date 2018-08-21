@@ -3,7 +3,6 @@ DROP DATABASE IF EXISTS gamefinder_db;
 -- Creates the "gamefinder_db" database --
 CREATE DATABASE IF NOT EXISTS gamefinder_db;
 
-
 use gamefinder_db;
 
 -- Created the table "game_library" to store values for a game dropdown field" 
