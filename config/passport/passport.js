@@ -43,7 +43,7 @@ module.exports = function(passport, user) {
             var userPassword = generateHash(password);
             var data = {
               username: username,
-              password: userPassword,
+              password: userPassword
             };
 
             User.create(data).then(function(newUser, created) {
@@ -52,6 +52,7 @@ module.exports = function(passport, user) {
               }
 
               if (newUser) {
+                console.log(newUser);
                 return done(null, newUser);
               }
             });
@@ -90,6 +91,7 @@ module.exports = function(passport, user) {
             }
 
             var userinfo = user.get();
+            console.log(userinfo);
 
             return done(null, userinfo);
           })

@@ -29,8 +29,7 @@ app.engine(
   exphbs({
     defaultLayout: "main"
   })
-);
-app.set("view engine", "handlebars");
+);app.set("view engine", "handlebars");
 
 //Models
 var models = require("./models");
