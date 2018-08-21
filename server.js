@@ -13,10 +13,11 @@ var PORT = process.env.PORT || 3000;
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static("public"));
+// app.use(express.static("/public"));
+// Static directory to be served
+app.use(express.static(__dirname + "/public"));
 
 // For Passport
-
 app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
 ); // session secret
@@ -29,7 +30,8 @@ app.engine(
   exphbs({
     defaultLayout: "main"
   })
-);app.set("view engine", "handlebars");
+);
+app.set("view engine", "handlebars");
 
 //Models
 var models = require("./models");
@@ -49,7 +51,7 @@ require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 //load passport strategies
-require("./config/passport/passport.js")(passport, models.user);
+require("./config/passport/passport.js")(passport, models.User);
 
 var syncOptions = { force: false };
 

@@ -1,17 +1,11 @@
--- Ray changed create table users to user sequilize plurls.
--- Also added password to users. 
--- Moved schema out of the models folder
-
-DROP DATABASE IF EXISTS exampledb;
-CREATE DATABASE exampledb;
-
-DROP DATABASE IF EXISTS testdb;
-CREATE DATABASE testdb;
 -- Drops the "gamefinder_db" if it exists currently --
 DROP DATABASE IF EXISTS gamefinder_db;
 -- Creates the "gamefinder_db" database --
 CREATE DATABASE IF NOT EXISTS gamefinder_db;
 
+
+-- The Schema and Seed below has been deprecated.  
+-- Leaving this here as a reference for the moment.
 use gamefinder_db;
 
 -- Created the table "game_library" to store values for a game dropdown field" 
