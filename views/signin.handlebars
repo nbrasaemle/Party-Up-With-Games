@@ -1,14 +1,27 @@
 <div class="container">
-    <form class="bg-dark text-white mt-5" id="signin" name="signin" method="post" action="signin">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" name="username" id="username" aria-describedby="usernameHelp" placeholder="Username">
-        </div>
-        <div class="form-group">
-            <label for="password1">Password</label>
-            <input type="password" class="form-control" name="password" id="password1" placeholder="Password">
-        </div>
-        <button type="submit" class="btn btn-primary" value="Sign In">Sign In</button>
-    </form>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Sign in to your account!</h2>
+                    <h5 class="card-subtitle mb-2 text-muted">
+                    </h5>
+                    <form class=" mt-5" id="signin" name="signin" method="post" action="signin">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" name="username" id="username" aria-describedby="usernameHelp" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password1">Password</label>
+                            <input type="password" class="form-control" name="password" id="password1" placeholder="Password">
+                            <hr>
+                        </div>
 
+                        <button type="submit" class="btn btn-primary" value="Sign In">Sign In</button>
+                        <br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
