@@ -84,7 +84,7 @@ module.exports = function (sequelize, DataTypes) {
     };
 
     Hosted_games.associate = function (models) {
-        Hosted_games.belongsTo(models.Gamelibrary, {
+        Hosted_games.belongsTo(models.Game_library, {
             foreignKey: {
                 allowNull: false
             }
