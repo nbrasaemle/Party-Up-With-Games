@@ -1,4 +1,147 @@
 <div class="container">
     <h2 class="text-white">Dashboard</h2>
     <h5 class="text-white">Hurray! you are logged in.</h5>
+    <div class="row">
+        <div class="col-sm-4 avatar-img">
+
+        </div>
+        <div class="col-sm-8">
+            <div>
+                <h4 class="profile-label">Name: </h4>
+                <p class="lead fontTwo profile-content" id="name"> </p>
+            </div>
+            <div>
+                <h4 class="profile-label">Email: </h4>
+                <p class="lead fontTwo profile-content" id="user-email"> </p>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div>
+                <h4 class="profile-label">Parties Joined: </h4>
+                <div id="users-games">
+
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div>
+                <h4 class="profile-label">Hosted Parties: </h4>
+                <div id="users-parties">
+
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h3 class="font">Don't see a game or party to play with? Create your own!</h3>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary mx-auto fontTwo" id="create-btn" data-toggle="modal" data-target="#gameModal">Create
+                a Party</button>
+            <br>
+            <br>
+        </div>
+    </div>
+
+    <!-- Map -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div id="map">
+                <div id="infowindow-content">
+                    <img src="" width="16" height="16" id="place-icon">
+                    <div id="place-name" class="title"></div>
+                    <br>
+                    <div id="place-address"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="gameModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Create a New Party!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <div aria-hidden="true">&times;</div>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Game select</label>
+                            <select class="form-control" id="game-name">
+                                <option>Dungeons & Dragons</option>
+                                <option>Magic the Gathering</option>
+                                <option>Pandemic</option>
+                                <option>Pathfinder</option>
+                                <option>PokemonGo</option>
+                                <option>Settlers of Catan</option>
+                                <option>Warhammer</option>
+                                <option>Chess</option>
+                                <option>Bring Your Own Game</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="party-name">Party Name:</label>
+                            <input type="text" class="form-control" id="party-name" placeholder="name">
+                        </div>
+                        <div class="form-row">
+                            <label for="address-input" class="labelStyle">Address</label>
+                        </div>
+                        <div id="address-container">
+                            <input class="form-control" id="address-input" type="text" placeholder="Enter a location" name="Address" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea class="form-control" id="description" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect2">Player Level Select (Optional):</label>
+                            <p class="card-subtitle mb-2 text-muted">If a specific level is not selected, anyone with any
+                                level can play</p>
+                            <select class="form-control" id="experience-level">
+                                <option>Any level</option>
+                                <option>Beginner level</option>
+                                <option>Moderate level</option>
+                                <option>Experienced level</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="party-name">Maximum Number of Players:</label>
+                            <input type="text" class="form-control" id="num-players" placeholder="number">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date of Party:</label>
+
+                            <input type="text" class="form-control" placeholder="Date" id="date">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Time of Party:</label>
+
+                            <input type="text" class="form-control" placeholder="Time">
+
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="new-party">Create Party</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

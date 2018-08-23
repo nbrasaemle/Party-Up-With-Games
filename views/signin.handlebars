@@ -1,14 +1,30 @@
 <div class="container">
-    <form class="bg-dark text-white mt-5" id="signin" name="signin" method="post" action="signin">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" name="username" id="username" aria-describedby="usernameHelp" placeholder="Username">
-        </div>
-        <div class="form-group">
-            <label for="password1">Password</label>
-            <input type="password" class="form-control" name="password" id="password1" placeholder="Password">
-        </div>
-        <button type="submit" class="btn btn-primary" value="Sign In">Sign In</button>
-    </form>
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <div class="card sign-in">
+                <div class="card-body">
+                    <h2 class="card-title">Sign into your account!</h2>
+                    <h4 class="card-subtitle mb-2 text-muted">A new adventure is waiting for you!</h4>
+                    <hr>
 
+                    <form class=" mt-5" id="signin" name="signin" method="post" action="signin">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" name="username" id="username" aria-describedby="usernameHelp" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password1">Password</label>
+                            <input type="password" class="form-control" name="password" id="password1" placeholder="Password">
+                            <hr>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" value="Sign In" id="sign-in-btn">Sign In</button>
+                        <br>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
 </div>
