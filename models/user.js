@@ -1,24 +1,21 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function (sequelize, Sequelize) {
   var User = sequelize.define("User", {
       user_id: {
-          type: DataTypes.INTEGER(10),
+          type: Sequelize.INTEGER(10),
           allowNull: false,
           primaryKey: true,
           autoIncrement: true
       },
       username: {
-          type: DataTypes.STRING(50),
+          type: Sequelize.STRING(50),
           allowNull: false,
       },
       password: {
-          type: DataTypes.TEXT,
+          type: Sequelize.TEXT,
           allowNull: false,
-          validate: {
-              isAlphanumeric: true
-          }
       },
       user_img: {
-          type: DataTypes.STRING,
+          type: Sequelize.STRING,
           allowNull: false,
           defaultValue: "http://downloadicons.net/sites/default/files/red-dragon-icon-49331.png",
           validate: {
