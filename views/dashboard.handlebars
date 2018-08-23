@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-<div class="row">
+    <div class="row">
         <div class="col-sm-12">
             <div>
                 <h4 class="profile-label">Hosted Parties: </h4>
@@ -44,7 +44,8 @@
         <div class="col-sm-12">
             <h3 class="font">Don't see a game or party to play with? Create your own!</h3>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary mx-auto fontTwo" id="create-btn" data-toggle="modal" data-target="#gameModal">Create a Party</button>
+            <button type="button" class="btn btn-primary mx-auto fontTwo" id="create-btn" data-toggle="modal" data-target="#gameModal">Create
+                a Party</button>
             <br>
             <br>
         </div>
@@ -79,15 +80,16 @@
 
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Game select</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <select class="form-control" id="game-name">
                                 <option>Dungeons & Dragons</option>
-                                <option>Magic</option>
+                                <option>Magic the Gathering</option>
                                 <option>Pandemic</option>
                                 <option>Pathfinder</option>
                                 <option>PokemonGo</option>
                                 <option>Settlers of Catan</option>
                                 <option>Warhammer</option>
-                                <option>Bring Your Own Game (BYOG)</option>
+                                <option>Chess</option>
+                                <option>Bring Your Own Game</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -107,8 +109,10 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect2">Player Level Select (Optional):</label>
-                            <p class="card-subtitle mb-2 text-muted">If a specific level is not selected, anyone with any level can play</p>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <p class="card-subtitle mb-2 text-muted">If a specific level is not selected, anyone with any
+                                level can play</p>
+                            <select class="form-control" id="experience-level">
+                                <option>Any level</option>
                                 <option>Beginner level</option>
                                 <option>Moderate level</option>
                                 <option>Experienced level</option>
@@ -121,23 +125,21 @@
                         </div>
                         <div class="form-group">
                             <label for="date">Date of Party:</label>
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Date">
-                            </div>
+
+                            <input type="text" class="form-control" placeholder="Date" id="date">
+
                         </div>
                         <div class="form-group">
                             <label for="date">Time of Party:</label>
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Time">
-                            </div>
+
+                            <input type="text" class="form-control" placeholder="Time">
+
                         </div>
-
                     </form>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="new-game">Create Game</button>
+                    <button type="button" class="btn btn-primary" id="new-party">Create Party</button>
                 </div>
             </div>
         </div>

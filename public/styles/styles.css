@@ -63,10 +63,13 @@ h2, h4, .col-sm-4 {
   position: relative;
 }
 /* Row */
-.row {
-  margin:10px 0px;
+.card {
+  margin:20px 0px;
 }
-
+/* Signin styles */
+.sign-in {
+  margin: 47px;
+}
 /* Footer */
 .footer{
   color: white;
