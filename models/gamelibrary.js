@@ -32,7 +32,7 @@ module.exports = function (sequelize, DataTypes) {
   };
 
   Game_library.associate = function (models) {
-    Game_library.belongsTo(models.Hosted_games, {
+    Game_library.hasMany(models.Hosted_games, {
       foreignKey: {
         allowNull: false
       }

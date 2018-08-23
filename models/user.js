@@ -13,9 +13,6 @@ module.exports = function (sequelize, Sequelize) {
       password: {
           type: Sequelize.TEXT,
           allowNull: false,
-          validate: {
-              isAlphanumeric: true
-          }
       },
       user_img: {
           type: Sequelize.STRING,
