@@ -94,7 +94,7 @@ $(document).ready(function() {
     });
     //values from the party form to post
     $('#new-party').on('click', function (event) {
-      event.preventDefault();
+      event.preventDefault();      
       console.log('here');
       var newParty = {
         gameName: $('#game-name').val().trim(),
