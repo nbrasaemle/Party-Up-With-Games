@@ -5,6 +5,13 @@ module.exports = function (sequelize, DataTypes) {
             primaryKey: true,
             autoIncrement: true
         },
+        game_name: {
+            type: DataTypes.STRING(100),
+            allowNull: false,
+            validate: {
+                notNull: true
+            }
+        },
         game_master: {
             type: DataTypes.STRING(100),
             allowNull: false,
