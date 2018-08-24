@@ -1,0 +1,35 @@
+<div class="container not-centered">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>{{party_name}}</h1>
+            <hr>
+            <h4>Game: </h4> <p>{{game_name}}</p>
+            <h4>Experience Level: </h4> <p>{{player_exp_level}}</p>
+            <h4>Maximum number of players: </h4> <p>{{max_players}}</p>
+            <h4>Party is Full? </h4> <p id="full-party"></p>
+            <h4>Date of Party: </h4> <p>{{date}}</p>
+            <h4>Time of Party: </h4> <p>{{time}}</p>
+            <h4>Location: </h4> <p>{{location}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h4>Description: </h4>
+            <p>{{description}}</p>
+        </div>
+    </div>
+
+        <!-- Map -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div id="map">
+                <div id="infowindow-content">
+                    <img src="" width="16" height="16" id="place-icon">
+                    <div id="place-name" class="title"></div>
+                    <br>
+                    <div id="place-address"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
