@@ -25,8 +25,16 @@
         </div>
     </div>
     {{/unless}}
-    
-    <div class="row">
+    {{#if signedIn}}
+    {{#unless partiesForGame}}
+ <div class="row">
+        <div class="col-sm-12">
+            <h4>No parties available for this game</h4>
+        </div>
+    </div>
+    {{/unless}}
+    <div class="row wrapped">
         {{#each gameParties}} {{> games/games-block}} {{/each}}
     </div>
+    {{/if}}
 </div>
