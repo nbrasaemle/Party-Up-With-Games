@@ -25,20 +25,18 @@ module.exports = function (sequelize, Sequelize) {
   });
 
 // Relations
-/*  User.associate = function (models) {
+  User.associate = function (models) {
       User.hasMany(models.Hosted_games, {
           foreignKey: {
               allowNull: false
           }
       });
-  };*/
 
-  User.associate = function (models) {
       User.hasMany(models.Users_games, {
-          foreignKey: {
-              allowNull: false
-          }
-      });
+        foreignKey: {
+            allowNull: false
+        }
+    });
   };
 
   return User;
