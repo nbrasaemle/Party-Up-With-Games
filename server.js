@@ -4,6 +4,7 @@ var passport = require("passport");
 var session = require("express-session");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
+var flash = require('connect-flash');
 var moment = require("moment");
 
 var db = require("./models");
@@ -24,6 +25,7 @@ app.use(
 ); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
+app.use(flash()); // added for error messages.
 
 // Handlebars
 app.engine(
@@ -47,7 +49,7 @@ models.sequelize
   });
 
 // Routes
-var authRoute = require("./routes/auth.js")(app, passport);
+require("./routes/auth.js")(app, passport);
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 

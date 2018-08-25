@@ -50,83 +50,117 @@ function initMap() {
         handleLocationError(false, infowindow, map.getCenter());
     }
 
-    function handleLocationError(browserHasGeolocation, infowindow, pos) {
         infowindow.setPosition(pos);
-        infowindow.setContent(browserHasGeolocation ?
-            'Error: The Geolocation service failed.' :
-            'Error: Your browser doesn\'t support geolocation.');
+        infowindow.setContent("Location found.");
         infowindow.open(map);
+        map.setCenter(pos);
+      },
+      function() {
+        handleLocationError(true, infowindow, map.getCenter());
+      }
+    );
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infowindow, map.getCenter());
+  }
+
+  function handleLocationError(browserHasGeolocation, infowindow, pos) {
+    infowindow.setPosition(pos);
+    infowindow.setContent(
+      browserHasGeolocation
+        ? "Error: The Geolocation service failed."
+        : "Error: Your browser doesn't support geolocation."
+    );
+    infowindow.open(map);
+  }
+
+  var marker = new google.maps.Marker({
+    map: map,
+    anchorPoint: new google.maps.Point(0, -29)
+  });
+
+  autocomplete.addListener("place_changed", function() {
+    infowindow.close();
+    marker.setVisible(false);
+    var place = autocomplete.getPlace();
+
+    // If the place has a geometry, then present it on a map.
+    if (place.geometry.viewport) {
+      map.fitBounds(place.geometry.viewport);
+    } else {
+      map.setCenter(place.geometry.location);
+      map.setZoom(13);
+    }
+    marker.setPosition(place.geometry.location);
+    marker.setVisible(true);
+
+    var address = "";
+    if (place.address_components) {
+      address = [
+        (place.address_components[0] &&
+          place.address_components[0].short_name) ||
+          "",
+        (place.address_components[1] &&
+          place.address_components[1].short_name) ||
+          "",
+        (place.address_components[2] &&
+          place.address_components[2].short_name) ||
+          ""
+      ].join(" ");
     }
 
-    var marker = new google.maps.Marker({
-        map: map,
-        anchorPoint: new google.maps.Point(0, -29)
-    });
-
-    autocomplete.addListener('place_changed', function () {
-        infowindow.close();
-        marker.setVisible(false);
-        var place = autocomplete.getPlace();
-
-        // If the place has a geometry, then present it on a map.
-        if (place.geometry.viewport) {
-            map.fitBounds(place.geometry.viewport);
-        } else {
-            map.setCenter(place.geometry.location);
-            map.setZoom(13);
-        }
-        marker.setPosition(place.geometry.location);
-        marker.setVisible(true);
-
-        var address = '';
-        if (place.address_components) {
-            address = [
-                (place.address_components[0] && place.address_components[0].short_name || ''),
-                (place.address_components[1] && place.address_components[1].short_name || ''),
-                (place.address_components[2] && place.address_components[2].short_name || '')
-            ].join(' ');
-        }
-
-        infowindowContent.children['place-icon'].src = place.icon;
-        infowindowContent.children['place-name'].textContent = place.name;
-        infowindowContent.children['place-address'].textContent = address;
-        infowindow.open(map, marker);
-    });
-};
+    infowindowContent.children["place-icon"].src = place.icon;
+    infowindowContent.children["place-name"].textContent = place.name;
+    infowindowContent.children["place-address"].textContent = address;
+    infowindow.open(map, marker);
+  });
+}
 
 $(document).ready(function() {
-    //function to change navbar's buttons (there has to be a key of "signedin" to attach to the navbar-blockers)
-    $(document).on("click", "#sign-in-btn" || "#sign-up-btn", function(){
-        
-    });
-    //values from the party form to post
-    $('#new-party').on('click', function (event) {
-      event.preventDefault();      
-      console.log('here');
-      var newParty = {
-        gameName: $('#game-name').val().trim(),
-        partyName: $('#party-name').val().trim(),
-        address: $('#address-input').val().trim(),
-        description: $('#description').val().trim(),
-        experience: $('#experience-level').val().trim(),
-        numberOfPlayers: $('#num-players').val().trim(),
-        date: $('#date').val().trim(),
-        time: $('#time').val().trim()
-      };
-      console.log(newParty);
-      $.ajax('/api/parties', {
-        type: 'POST',
-        data: newParty
-      }).then(
-        function () {
-          console.log('posted Party', newParty);
-          window.location.replace('/');
-        }
-      );
+  //function to change navbar's buttons (there has to be a key of "signedin" to attach to the navbar-blockers)
+  $(document).on("click", "#sign-in-btn" || "#sign-up-btn", function() {});
+  //values from the party form to post
+  $("#new-party").on("click", function(event) {
+    event.preventDefault();
+    console.log("here");
+    var newParty = {
+      gameName: $("#game-name")
+        .val()
+        .trim(),
+      partyName: $("#party-name")
+        .val()
+        .trim(),
+      address: $("#address-input")
+        .val()
+        .trim(),
+      description: $("#description")
+        .val()
+        .trim(),
+      experience: $("#experience-level")
+        .val()
+        .trim(),
+      numberOfPlayers: $("#num-players")
+        .val()
+        .trim(),
+      date: $("#date")
+        .val()
+        .trim(),
+      time: $("#time")
+        .val()
+        .trim()
+    };
+    console.log(newParty);
+    $.ajax("/api/parties", {
+      type: "POST",
+      data: newParty
+    }).then(function() {
+      console.log("posted Party", newParty);
+      window.location.replace("/");
     });
 
 
   });
+});
 // // Get references to page elements
 // var gameName = $("#game-name").val().trim();
 // var partyName = $("#party-name").val().trim();;

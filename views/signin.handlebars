@@ -7,7 +7,9 @@
                     <h2 class="card-title">Sign into your account!</h2>
                     <h4 class="card-subtitle mb-2 text-muted">A new adventure is waiting for you!</h4>
                     <hr>
-
+                    {{#if message}}
+                    <div class="alert alert-danger">{{message}}</div>
+                    {{/if}}
                     <form class=" mt-5" id="signin" name="signin" method="post" action="signin">
                         <div class="form-group">
                             <label for="username">Username</label>
