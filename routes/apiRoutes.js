@@ -55,11 +55,11 @@ module.exports = function (app) {
   });
 
   // Get all of the User's hosted and Party games
-  app.get("/api/profile/host/:name", function (req, res) {
+  app.get("/api/profile/host/:id", function (req, res) {
     // Get Hosted Games
     db.Hosted_games.findAll({
       where: {
-        game_master: req.params.name
+        game_masterId: req.params.id
       }
     }).then(function (hostData) {
       res.json(hostData);
@@ -82,6 +82,7 @@ module.exports = function (app) {
     db.Hosted_games.create({
       game_name: req.body.game,
       game_master: req.body.username,
+      game_masterId: req.body.userID,
       party_name: req.body.partyName,
       location: req.body.location,
       latitude: req.body.latitude,

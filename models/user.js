@@ -31,14 +31,12 @@ module.exports = function (sequelize, Sequelize) {
               allowNull: false
           }
       });
-  };
 
-  User.associate = function (models) {
       User.hasMany(models.Users_games, {
-          foreignKey: {
-              allowNull: false
-          }
-      });
+        foreignKey: {
+            allowNull: false
+        }
+    });
   };
 
   return User;

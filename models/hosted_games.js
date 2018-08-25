@@ -11,6 +11,12 @@ module.exports = function (sequelize, Sequelize) {
             validate: {
                 notNull: true
             }
+        },game_masterId: {
+            type: Sequelize.INTEGER(10),
+            allowNull: false,
+            validate: {
+                notNull: true
+            }
         },
         game_master: {
             type: Sequelize.STRING(100),
@@ -81,22 +87,19 @@ module.exports = function (sequelize, Sequelize) {
 
     // Relations
     Hosted_games.associate = function (models) {
+       
         Hosted_games.belongsTo(models.User, {
             foreignKey: {
-                allowNull: false
+                allowNull: true
             }
         });
-    };
-
-    Hosted_games.associate = function (models) {
+       
         Hosted_games.belongsTo(models.Game_library, {
             foreignKey: {
                 allowNull: false
             }
         });
-    };
-   
-    Hosted_games.associate = function (models) {
+
         Hosted_games.hasMany(models.Users_games, {
             foreignKey: {
                 allowNull: false
