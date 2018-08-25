@@ -4,7 +4,7 @@ var passport = require("passport");
 var session = require("express-session");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
-var flash = require('connect-flash');
+var flash = require("connect-flash");
 var moment = require("moment");
 
 var db = require("./models");
@@ -26,6 +26,10 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // added for error messages.
+app.use(function(req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
 
 // Handlebars
 app.engine(

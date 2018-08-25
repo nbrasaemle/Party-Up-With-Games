@@ -3,6 +3,7 @@
     "username": "root",
     "password": "Tardis1011",
     "database": "gamefinder_db",
+    "port": 8889,
     "host": "localhost",
     "dialect": "mysql"
   },

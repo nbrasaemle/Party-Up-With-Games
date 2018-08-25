@@ -20,7 +20,6 @@ module.exports = function(app) {
     res.render("signin");
   });
   app.get("/games/:game_id", function(req,res){
-    
     res.render("game");
   });
   app.get("/parties/:party_id", function(req,res){
