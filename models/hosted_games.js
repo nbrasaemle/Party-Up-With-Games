@@ -19,6 +19,13 @@ module.exports = function (sequelize, Sequelize) {
                 notNull: true
             }
         },
+        game_masterId: {
+            type: Sequelize.INTEGER(10),
+            allowNull: false,
+            validate: {
+                notNull: true
+            }
+        },
         party_name: {
             type: Sequelize.STRING(100),
             allowNull: false,
