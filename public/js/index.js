@@ -90,7 +90,7 @@ function initMap() {
 $(document).ready(function() {
     //function to change navbar's buttons (there has to be a key of "signedin" to attach to the navbar-blockers)
     $(document).on("click", "#sign-in-btn" || "#sign-up-btn", function(){
-
+        
     });
     //values from the party form to post
     $('#new-party').on('click', function (event) {
@@ -117,6 +117,8 @@ $(document).ready(function() {
         }
       );
     });
+
+
   });
 // // Get references to page elements
 // var gameName = $("#game-name").val().trim();

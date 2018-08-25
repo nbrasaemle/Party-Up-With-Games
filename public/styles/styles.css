@@ -26,19 +26,18 @@ body {
   font-family: 'Lato', sans-serif;
 }
 #search-label {
-  color:rgb(9, 33, 112);
+  color:rgb(4, 0, 219);
   font-weight: bold;
 }
-h3, h5, .font {
-  text-align: center;
+h3, h5, .font, .j, .fontTwo, h4{
+ 
   color:rgb(8, 119, 255);
 }
-.j {
-  color:rgb(8, 119, 255);
-  text-align: center;
+.btn{
+  color: aliceblue;
 }
 /* Aligning */
-h2, h4, .col-sm-4, #create-party {
+h2, h4, .col-sm-4, #create-party, .j, h3, h5, .font, .fontTwo  {
   text-align: center;
 }
 
@@ -91,19 +90,23 @@ h2, h4, .col-sm-4, #create-party {
 	text-align: center;
 	line-height: 1.5;
 	padding: 8px;
-	font-size:10px;
+	/* font-size:10px; */
 	border-top: solid 2px rgb(152, 165, 160);
   margin-top: 20px;
   min-width: 100%;
-  /* position: fixed; */
+  position: fixed;
   bottom: -10;
-  z-index: 9999;
+  /* z-index: 1; */
 }
+/* .party-modal{
+  z-index: 2;
+} */
 .not-centered {
   text-align: left;
 }
 .footer-text {
   font-size: 12px;
+  margin-bottom:5px;
 }
 /* Party cards */
 .party-cards{

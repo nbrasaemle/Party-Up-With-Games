@@ -1,13 +1,14 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <h1>{{game_name}}</h1>
+            <h1 class="font">{{game_name}}</h1>
             <hr>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-6">
-            <h4>Genre: {{genre}}</h4>
+            <h4 class="fontTwo">Genre: </h4>
+            <h4 class="fontTwo">{{genre}}</h4>
         </div>
         <div class="col-sm-6">
             {{!-- image? --}}
@@ -15,13 +16,13 @@
     </div>
     <div class="row">
         <div class="col-sm-12">
-            <h4>Parties Available for this game: </h4>
+            <h4 class="fontTwo">Parties Available for this game: </h4>
         </div>
     </div>
     {{#unless signedIn}}
     <div class="row">
         <div class="col-sm-12">
-            <h4>You must be signed in to view the parties available</h4>
+            <h4 class="fontTwo">You must be signed in to view the parties available</h4>
         </div>
     </div>
     {{/unless}}
@@ -29,7 +30,7 @@
     {{#unless partiesForGame}}
  <div class="row">
         <div class="col-sm-12">
-            <h4>No parties available for this game</h4>
+            <h4 class="fontTwo">No parties available for this game</h4>
         </div>
     </div>
     {{/unless}}

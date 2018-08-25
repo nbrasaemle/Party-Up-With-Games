@@ -12,6 +12,16 @@ module.exports = function(app) {
   app.get("/signin", function(req, res) {
     res.render("signin");
   });
+  app.get("/games/:game_id", function(req,res){
+    
+    res.render("game");
+  });
+  app.get("/parties/:party_id", function(req,res){
+    res.render("party");
+  });
+  app.get("/hosted-parties/:party_id", function(req, res){
+    res.render("hosted-party");
+  });
 
   /*
   // Load example page and pass in an example by id
