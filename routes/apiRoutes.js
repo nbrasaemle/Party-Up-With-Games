@@ -82,6 +82,7 @@ module.exports = function (app) {
     db.Hosted_games.create({
       game_name: req.body.game,
       game_master: req.body.username,
+      game_masterId: req.body.userID,
       party_name: req.body.partyName,
       location: req.body.location,
       latitude: req.body.latitude,
