@@ -5,6 +5,10 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     res.render("index");
   });
+  // Ray added to get the logout to work.
+  app.get("/index", function(req, res) {
+    res.render("index");
+  });
 
   app.get("/signup", function(req, res) {
     res.render("signup");
