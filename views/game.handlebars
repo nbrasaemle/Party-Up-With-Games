@@ -19,14 +19,14 @@
             <h4 class="fontTwo">Parties Available for this game: </h4>
         </div>
     </div>
-    {{#unless signedIn}}
+    {{#unless user}}
     <div class="row">
         <div class="col-sm-12">
             <h4 class="fontTwo">You must be signed in to view the parties available</h4>
         </div>
     </div>
     {{/unless}}
-    {{#if signedIn}}
+    {{#if user}}
     {{#unless partiesForGame}}
  <div class="row">
         <div class="col-sm-12">
