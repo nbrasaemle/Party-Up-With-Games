@@ -1,201 +1,181 @@
 var db = require("../models");
+var Sequelize = require("sequelize");
+var moment = require("moment");
+const Op = Sequelize.Op;
 
-module.exports = function(app) {
-  app.get("/dashboard", function(req, res) {
+console.log(moment());
 
-    db.Game_library .findAll({}).then(function(dbGame_library ) {
-      res.json(dbGame_library );
+module.exports = function (app) {
+  ////////// New routes //////////
+  // Get list of all all open games by game_name and show only future, open games
+  app.get("/api/games/:id", function (req, res) {
+    db.Hosted_games.findAll({
+      where: {
+        GameLibraryGameId: req.params.id,
+        meeting_date: {
+          [Op.gt]: moment().toDate()
+        },
+        is_full: false
+      }
+    }).then(function (data) {
+      res.json(data);
     });
+  });
 
-    db.Hosted_games.findAll({}).then(function(dbHosted_games) {
+  // Get the hosted_game by hosted_game_ID and show players
+  app.get("/api/parties/:id", function (req, res) {
+    db.Hosted_games.findAll({
+      where: {
+        hosted_gameid: req.params.id
+      },
+      include: [{ model: db.Users_games }]
+    }).then(function (data) {
+      res.json(data);
+    });
+  });
+
+  // Get all future games filtered by genre, then filter to show only future games where the party is not full
+  app.get("/api/genres/:genre", function (req, res) {
+    db.Game_library.findAll({
+      where: {
+        genre: req.params.genre
+      },
+      include: [{
+        model: db.Hosted_games,
+        where: {
+          meeting_date: {
+            [Op.gt]: moment().toDate()
+          },
+          is_full: false
+        }
+      }]
+    }).then(function (data) {
+      res.json(data);
+    });
+  });
+
+  // Get all of the User's hosted and Party games
+  app.get("/api/profile/host/:name", function (req, res) {
+    // Get Hosted Games
+    db.Hosted_games.findAll({
+      where: {
+        game_master: req.params.name
+      }
+    }).then(function (hostData) {
+      res.json(hostData);
+    });
+  });
+
+  app.get("/api/profile/member/:id", function (req, res) {
+    // Get Party Member Games
+    db.Users_games.findAll({
+      where: {
+        UserUserId: req.params.id
+      }
+    }).then(function (userData) {
+      res.json(userData);
+    });
+  });
+
+  // POST route for creating a new hosted game. 
+  app.post("/api/newparty", function (req, res) {
+    db.Hosted_games.create({
+      game_name: req.body.game,
+      game_master: req.body.username,
+      party_name: req.body.partyName,
+      location: req.body.location,
+      latitude: req.body.latitude,
+      longitude: req.body.longitude,
+      description: req.body.description,
+      player_exp_level: req.body.experience,
+      meeting_date: req.body.meetingDate,
+      max_players: req.body.maxPlayers,
+      is_full: false,
+      GameLibraryGameId: req.body.gameID
+    }).then(function (dbGame) {
+      res.json(dbGame);
+    });
+  });
+
+  // POST route for joining party. 
+  app.post("/api/joinparty", function (req, res) {
+    db.Users_games.create({
+      username: req.body.username,
+      HostedGameHostedGameid: req.body.hostedGameID,
+      UserUserId: req.body.userID
+    }).then(function (dbUserGame) {
+      res.json(dbUserGame);
+    });
+  });
+
+  // PUT route for updating hosted games
+  app.put("/api/editparty", function (req, res) {
+    db.Hosted_games.update(
+      {
+        party_name: req.body.partyName,
+        location: request.body.location,
+        latitude: req.body.latitude,
+        longitude: req.body.longitude,
+        description: req.body.description,
+        player_exp_level: req.body.experience,
+        meeting_date: req.body.meetingDate,
+        max_players: req.body.maxPlayers,
+        is_full: false,
+      },
+      {
+        where: {
+          hosted_gameid: req.body.hostedGameId
+        }
+      }).then(function (dbPost) {
+        res.json(dbPost);
+      });
+  });
+};
+
+  ////// OLD ROUTES /////
+  /*app.get("/dashboard", function (req, res) 
+    db.Game_library.findAll({}).then(function (dbGame_library) {
+      res.json(dbGame_library);
+    });
+  
+    db.Hosted_games.findAll({}).then(function (dbHosted_games) {
       res.json(dbHosted_games);
-
-  });
-
-  db.User.findAll({}).then(function(dbUser) {
-    res.json(dbUser);
-
-   
-
-  });
-});
-
-app.get("/api/games/:game_id", function(req, res) {
-  // findAll returns all entries for a table when used with no options
-  db.Game_library.findAll({}).then(function(dbGame_library) {
-    // We have access to the todos as an argument inside of the callback function
-    res.json(dbGame_library);
-  });
-});
-
-app.get("/api/parties/:party_id", function(req, res) {
-  // findAll returns all entries for a table when used with no options
-  db.Hosted_games.findAll({}).then(function(dbHosted_games) {
-    // We have access to the todos as an argument inside of the callback function
-    res.json(dbHosted_games);
-  });
-});
-
-app.get("/api/hosted-parties", function(req, res) {
-  // findAll returns all entries for a table when used with no options
-  db.Hosted_games.findAll({}).then(function(dbHosted_games) {
-    // We have access to the todos as an argument inside of the callback function
-    res.json(dbHosted_games);
-  });
-});
-
-// app.get("/api/:characters?", function(req, res) {
-//   // If the user provides a specific character in the URL...
-//   if (req.params.characters) {
-//     // Then display the JSON for ONLY that character.
-//     // (Note how we're using the ORM here to run our searches)
-//     Character.findOne({
-//       where: {
-//         routeName: req.params.characters
-//       }
-//     }).then(function(result) {
-//       return res.json(result);
-//     });
-//   }
-//   else {
-//     // Otherwise...
-//     // Otherwise display the data for all of the characters.
-//     // (Note how we're using Sequelize here to run our searches)
-//     Character.findAll({}).then(function(result) {
-//       return res.json(result);
-//     });
-//   }
-// });
-
-
-
- // Create a new example
-//  app.get("/api/:games", function(req, res) {
-//   db.Game_library.findAll(req.params.game_id).then(function(Game_library) {
-//     res.json(data);
-//   });
-// });
-
-//   app.post("/register/",function(req,res){
-//     var bodyStr = '';
-//     req.on("data",function(chunk){
-//         bodyStr += chunk.toString();
-//     });
-//     req.on("end",function(){
-//         res.send(bodyStr);
-//     });
-
-// });
-// // default route
-// //app.get('/', function (req, res) {
-//   res.render('index');
-// });
-
-// // Retrieve all todos 
-// //app.get('/register', function (req, res) {
-//   //mc.query('SELECT * FROM tasks', function (error, results, fields) {
-//       //if (error) throw error;
-//       //return res.send({ error: false, data: results, message: 'Todos list.' });
-//   });
-// });
-
-// // Search for todos with ‘bug’ in their name
-// //app.get('/todos/search/:keyword', function (req, res) {
-//   //let keyword = req.params.keyword;
-//   //mc.query("SELECT * FROM tasks WHERE task LIKE ? ", ['%' + keyword + '%'], function (error, results, fields) {
-//       //if (error) throw error;
-//       //return res.send({ error: false, data: results, message: 'Todos search list.' });
-//   });
-// });
-
-// // Retrieve todo with id 
-// //app.get('/dashboard/:id', function (req, res) {
-
-//   //let task_id = req.params.id;
-
-//   //mc.query('SELECT * FROM tasks where id=?', task_id, function (error, results, fields) {
-//       //if (error) throw error;
-//       //return res.send({ error: false, data: results[0], message: 'Todos list.' });
-//   });
-
-// });
-
-// // Add a new todo  
-// //app.post('/todo', function (req, res) {
-
-//   //let task = req.body.task;
-
-//   //if (!task) {
-//       return res.status(400).send({ error:true, message: 'Please provide task' });
-//   }
-
-//   mc.query("INSERT INTO tasks SET ? ", { task: task }, function (error, results, fields) {
-//       if (error) throw error;
-//       return res.send({ error: false, data: results, message: 'New task has been created successfully.' });
-//   });
-// });
-
-// //  Update todo with id
-// app.put('/todo', function (req, res) {
-
-//   let task_id = req.body.task_id;
-//   let task = req.body.task;
-
-//   if (!task_id || !task) {
-//       return res.status(400).send({ error: task, message: 'Please provide task and task_id' });
-//   }
-
-//   mc.query("UPDATE tasks SET task = ? WHERE id = ?", [task, task_id], function (error, results, fields) {
-//       if (error) throw error;
-//       return res.send({ error: false, data: results, message: 'Task has been updated successfully.' });
-//   });
-// });
-
-// //  Delete todo
-// app.delete('/todo/:id', function (req, res) {
-
-//   let task_id = req.params.id;
-
-//   mc.query('DELETE FROM tasks WHERE id = ?', [task_id], function (error, results, fields) {
-//       if (error) throw error;
-//       return res.send({ error: false, data: results, message: 'Task has been updated successfully.' });
-//   });
-
-// });
-
-// // all other requests redirect to 404
-// app.all("*", function (req, res, next) {
-//   return res.send('page not found');
-//   next();
-// });
-
-// // port must be set to 8080 because incoming http requests are routed from port 80 to port 8080
-// app.listen(8080, function () {
-//   console.log('Node app is running on port 8080');
-// });
-
-// // allows "grunt dev" to create a development server with livereload
-// module.exports = app;
-  /*
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
     });
-
-  });
-
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+  
+    db.User.findAll({}).then(function (dbUser) {
+      res.json(dbUser);
     });
   });
-
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
+  
+  // Get list of open hosted parties by game_ID
+  app.get("/api/hosted-parties", function (req, res) {
+    db.Hosted_games.findAll({}).then(function (dbHosted_games) {
+      res.json(dbHosted_games);
     });
-  });*/
-};//end of module exports
+  });
+  
+  */
+
+  // app.get("/api/:characters?", function(req, res) {
+  //   // If the user provides a specific character in the URL...
+  //   if (req.params.characters) {
+  //     // Then display the JSON for ONLY that character.
+  //     // (Note how we're using the ORM here to run our searches)
+  //     Character.findOne({
+  //       where: {
+  //         routeName: req.params.characters
+  //       }
+  //     }).then(function(result) {
+  //       return res.json(result);
+  //     });
+  //   }
+  //   else {
+  //     // Otherwise...
+  //     // Otherwise display the data for all of the characters.
+  //     // (Note how we're using Sequelize here to run our searches)
+  //     Character.findAll({}).then(function(result) {
+  //       return res.json(result);
+  //     });
+  //   }
+  // });
+

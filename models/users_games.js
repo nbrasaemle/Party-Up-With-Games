@@ -1,6 +1,9 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function (sequelize, Sequelize) {
     var Users_games = sequelize.define("Users_games", {
-
+        username: {
+            type: Sequelize.STRING(50),
+            allowNull: false,
+        },
     });
 
     // Relations
