@@ -1,78 +1,76 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function (sequelize, Sequelize) {
     var Hosted_games = sequelize.define("Hosted_games", {
         hosted_gameid: {
-            type: DataTypes.INTEGER(10),
+            type: Sequelize.INTEGER(10),
             primaryKey: true,
             autoIncrement: true
         },
         game_name: {
-            type: DataTypes.STRING(100),
+            type: Sequelize.STRING(100),
             allowNull: false,
             validate: {
                 notNull: true
             }
         },
         game_master: {
-            type: DataTypes.STRING(100),
+            type: Sequelize.STRING(100),
             allowNull: false,
             validate: {
                 notNull: true
             }
         },
         party_name: {
-            type: DataTypes.STRING(100),
+            type: Sequelize.STRING(100),
             allowNull: false,
             validate: {
                 notNull: true
             }
         },
         location: {
-            type: DataTypes.DECIMAL(10, 8),
+            type: Sequelize.STRING,
             allowNull: false,
             validate: {
                 notNull: true
             }
         },
         latitude: {
-            type: DataTypes.DECIMAL(10, 8),
-            allowNull: false,
-            validate: {
-                notNull: true
-            }
-        },
-        longitude: {
-            type: DataTypes.DECIMAL(11, 8),
-            allowNull: false,
-            validate: {
-                notNull: true
-            }
-        },
+            type: Sequelize.INTEGER,
+            allowNull: true,
+            defaultValue: null,
+            validate: { min: -90, max: 90 }
+          },
+          longitude: {
+            type: Sequelize.INTEGER,
+            allowNull: true,
+            defaultValue: null,
+            validate: { min: -180, max: 180 }
+          },
         description: {
-            type: DataTypes.TEXT("long"),
+            type: Sequelize.TEXT("long"),
         },
         player_exp_level: {
-            type: DataTypes.STRING(20),
+            type: Sequelize.STRING(20),
             allowNull: false,
             validate: {
                 notNull: true
             }
         },
         meeting_date: {
-            type: DataTypes.DATE(6),
+            type: Sequelize.DATE(6),
             allowNull: false,
             validate: {
                 notNull: true
             }
         },
         max_players: {
-            type: DataTypes.INTEGER(3),
+            type: Sequelize.INTEGER(3),
             allowNull: false,
             validate: {
                 notNull: true
             }
         },
         is_full: {
-            type: DataTypes.BOOLEAN,
+            type: Sequelize.BOOLEAN,
             defaultValue: false,
             allowNull: false,
             validate: {
@@ -97,7 +95,7 @@ module.exports = function (sequelize, DataTypes) {
             }
         });
     };
-
+   
     Hosted_games.associate = function (models) {
         Hosted_games.hasMany(models.Users_games, {
             foreignKey: {
@@ -105,6 +103,6 @@ module.exports = function (sequelize, DataTypes) {
             }
         });
     };
-
+    
     return Hosted_games;
 };
