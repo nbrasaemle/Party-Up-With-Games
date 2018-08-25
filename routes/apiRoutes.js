@@ -55,17 +55,82 @@ module.exports = function (app) {
   });
 
   // Get all of the User's hosted and Party games
-  app.get("/api/profile/:name", function (req, res) {
+  app.get("/api/profile/host/:name", function (req, res) {
     // Get Hosted Games
     db.Hosted_games.findAll({
       where: {
         game_master: req.params.name
       }
     }).then(function (hostData) {
-      // We have access to the todos as an argument inside of the callback function
       res.json(hostData);
     });
   });
+
+  app.get("/api/profile/member/:id", function (req, res) {
+    // Get Party Member Games
+    db.Users_games.findAll({
+      where: {
+        UserUserId: req.params.id
+      }
+    }).then(function (userData) {
+      res.json(userData);
+    });
+  });
+
+  // POST route for creating a new hosted game. 
+  app.post("/api/newparty", function (req, res) {
+    db.Hosted_games.create({
+      game_name: req.body.game,
+      game_master: req.body.username,
+      party_name: req.body.partyName,
+      location: req.body.location,
+      latitude: req.body.latitude,
+      longitude: req.body.longitude,
+      description: req.body.description,
+      player_exp_level: req.body.experience,
+      meeting_date: req.body.meetingDate,
+      max_players: req.body.maxPlayers,
+      is_full: false,
+      GameLibraryGameId: req.body.gameID
+    }).then(function (dbGame) {
+      res.json(dbGame);
+    });
+  });
+
+  // POST route for joining party. 
+  app.post("/api/joinparty", function (req, res) {
+    db.Users_games.create({
+      username: req.body.username,
+      HostedGameHostedGameid: req.body.hostedGameID,
+      UserUserId: req.body.userID
+    }).then(function (dbUserGame) {
+      res.json(dbUserGame);
+    });
+  });
+
+  // PUT route for updating hosted games
+  app.put("/api/editparty", function (req, res) {
+    db.Hosted_games.update(
+      {
+        party_name: req.body.partyName,
+        location: request.body.location,
+        latitude: req.body.latitude,
+        longitude: req.body.longitude,
+        description: req.body.description,
+        player_exp_level: req.body.experience,
+        meeting_date: req.body.meetingDate,
+        max_players: req.body.maxPlayers,
+        is_full: false,
+      },
+      {
+        where: {
+          hosted_gameid: req.body.hostedGameId
+        }
+      }).then(function (dbPost) {
+        res.json(dbPost);
+      });
+  });
+};
 
   ////// OLD ROUTES /////
   /*app.get("/dashboard", function (req, res) 
@@ -113,4 +178,4 @@ module.exports = function (app) {
   //     });
   //   }
   // });
-}
+

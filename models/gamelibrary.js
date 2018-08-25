@@ -23,7 +23,6 @@ module.exports = function (sequelize, Sequelize) {
   });
 
   // Relations
-
   Game_library.associate = function (models) {
     Game_library.hasMany(models.Hosted_games, {
       foreignKey: {
