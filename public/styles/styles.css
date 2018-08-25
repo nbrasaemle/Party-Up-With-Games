@@ -21,7 +21,9 @@ body {
   font-family: 'Metamorphous', cursive;
   /* font-weight: bold; */
 }
-
+.game-label{
+  color:rgb(0, 0, 92)!important;
+}
 .fontTwo {
   font-family: 'Lato', sans-serif;
 }
