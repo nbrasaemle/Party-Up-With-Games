@@ -42,13 +42,31 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/games/1">Dungeons & Dragons</a>
-                        <a class="dropdown-item" href="/games/">Settlers of Catan</a>
-                        <a class="dropdown-item" href="/games/">Pokemon Go</a>
+                        <a class="dropdown-item" href="/games/6">Settlers of Catan</a>
+                        <a class="dropdown-item" href="/games/4">Pokemon Go</a>
+                        <a class="dropdown-item" href="/games/2">Warhammer 40,000</a>
+                        <a class="dropdown-item" href="/games/3">Pathfinder</a>
+                        <a class="dropdown-item" href="/games/5">Magic the Gathering</a>
+                        <a class="dropdown-item" href="/games/7">Chess</a>
+                        <a class="dropdown-item" href="/games/8">Pandemic</a>
                     </div>
                 </li>
                 {{!-- <li class="nav-item">
                     <a class="nav-link fontTwo" href="/profile">Player Profile</a>
                 </li> --}}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/games" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Genres
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/genre/Cooperative">Cooperative</a>
+                        <a class="dropdown-item" href="/genre/Role-playing">Role-playing</a>
+                        <a class="dropdown-item" href="/genre/Social">Social</a>
+                        <a class="dropdown-item" href="/genre/Strategy">Strategy</a>
+                        <a class="dropdown-item" href="/genre/Trading Card">Trading Card</a>
+                    </div>
+                </li>
 
             </ul>
             <form class="form-inline my-2 my-lg-0 ml-auto">
@@ -79,13 +97,14 @@
 {{!-- </footer> --}}
 {{!-- Script Links --}}
   <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKgJ9RtC7USuIago4nSYEgJbn5yL_EnZw&callback=initMap&libraries=places,geometry"
     async defer></script>
-  <script src="../public/js/index.js"></script>
+  <script src="../js/index.js"></script>
 
 </body>
 

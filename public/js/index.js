@@ -1,8 +1,15 @@
+$( document ).ready(function() {
+    console.log("Ready");
+});
 /* -----[Google Autocomplete input field ]
     Create an address field that utilizes Google Places
     address autocomplete field to properly set address data for Geo queries */
 
 function initMap() {
+    if (!document.getElementById('map')) {
+        return false;
+    }
+
     var map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 44.874357, lng: -93.284416 },
         zoom: 13
@@ -219,3 +226,4 @@ $(document).ready(function() {
 // // Add event listeners to the submit and delete buttons
 // $submitBtn.on("click", handleFormSubmit);
 // $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
