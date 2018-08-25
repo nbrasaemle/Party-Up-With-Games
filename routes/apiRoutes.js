@@ -55,11 +55,11 @@ module.exports = function (app) {
   });
 
   // Get all of the User's hosted and Party games
-  app.get("/api/profile/host/:name", function (req, res) {
+  app.get("/api/profile/host/:id", function (req, res) {
     // Get Hosted Games
     db.Hosted_games.findAll({
       where: {
-        game_master: req.params.name
+        game_masterId: req.params.id
       }
     }).then(function (hostData) {
       res.json(hostData);
