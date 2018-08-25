@@ -36,9 +36,11 @@ module.exports = function(passport, user) {
 
         User.findOne({ where: { username: username } }).then(function(user) {
           if (user) {
-            return done(null, false, {
-              message: "That username is already taken"
-            });
+            return done(
+              null,
+              false,
+              req.flash("message", "Sorry, that username is already taken.")
+            );
           } else {
             var userPassword = generateHash(password);
             var data = {
@@ -52,7 +54,7 @@ module.exports = function(passport, user) {
               }
 
               if (newUser) {
-                console.log(newUser);
+                //console.log(newUser);
                 return done(null, newUser);
               }
             });
@@ -83,16 +85,23 @@ module.exports = function(passport, user) {
         User.findOne({ where: { username: username } })
           .then(function(user) {
             if (!user) {
-              return done(null, false, { message: "username does not exist" });
+              return done(
+                null,
+                false,
+                req.flash("message", "username incorrect, please try again.")
+              );
             }
 
             if (!isValidPassword(user.password, password)) {
-              return done(null, false, { message: "Incorrect password." });
+              return done(
+                null,
+                false,
+                req.flash("message", "password incorrect, please try again.")
+              );
             }
 
             var userinfo = user.get();
-            console.log(userinfo);
-
+            //console.log(userinfo);
             return done(null, userinfo);
           })
           .catch(function(err) {

@@ -1,9 +1,10 @@
 {
   "development": {
     "username": "root",
-    "password": "Tardis1011",
+    "password": "root",
     "database": "gamefinder_db",
     "host": "localhost",
+    "port": 8889,
     "dialect": "mysql"
   },
   "test": {

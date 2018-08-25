@@ -2,27 +2,27 @@
 <html lang="en-us">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Party Up!</title>
-  <!--  Favicon -->
-  <link href="/styles/images/favicon.ico" rel="icon" type="image/x-icon" />
-  <link href="/styles/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-  <!-- Fonts -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Lato|Neuton" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Metamorphous" rel="stylesheet">
-  <link rel="stylesheet" href="/styles/styles.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Party Up!</title>
+    <!--  Favicon -->
+    <link href="/styles/images/favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="/styles/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Neuton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Metamorphous" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/styles.css">
 
 
 </head>
 
 <body>
-{{!-- Navbar --}}
+    {{!-- Navbar --}}
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand font" href="/">Party Up!</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand font" href="/index">Party Up!</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -30,7 +30,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link fontTwo" href="/">Home
+                    <a class="nav-link fontTwo" href="/index">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -51,7 +51,8 @@
                         <a class="dropdown-item" href="/games/8">Pandemic</a>
                     </div>
                 </li>
-                {{!-- <li class="nav-item">
+                {{!--
+                <li class="nav-item">
                     <a class="nav-link fontTwo" href="/profile">Player Profile</a>
                 </li> --}}
                 <li class="nav-item dropdown">
@@ -70,16 +71,17 @@
 
             </ul>
             <form class="form-inline my-2 my-lg-0 ml-auto">
-
+                {{!-- <p>{{username}}</p> --}}
                 {{>navbar/navbar-block}}
-
             </form>
 
 
         </div>
     </nav>
 
-  {{{body}}}
+    {{{body}}} {{!-- Footer --}} {{!--
+    <footer class="footerContainer"> --}} {{!--
+        <footer class="navbar sticky-bottom justify-content-center navbar-dark bg-dark footer">
 
 {{!-- Footer --}}
 {{!-- <footer class="footerContainer"> --}}

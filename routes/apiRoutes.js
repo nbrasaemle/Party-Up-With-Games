@@ -152,6 +152,10 @@ module.exports = function (app) {
     db.Hosted_games.findAll({}).then(function (dbHosted_games) {
       res.json(dbHosted_games);
     });
+<<<<<<< HEAD
+  });*/
+}; //end of module exports
+=======
   });
   
   */
@@ -179,3 +183,4 @@ module.exports = function (app) {
   //   }
   // });
 
+>>>>>>> fb9aa80bbed6b975e18ed6196e223ac3f5b3d3b3
