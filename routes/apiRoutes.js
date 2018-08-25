@@ -80,16 +80,16 @@ module.exports = function (app) {
   // POST route for creating a new hosted game. 
   app.post("/api/newparty", function (req, res) {
     db.Hosted_games.create({
-      game_name: req.body.game,
+      game_name: req.body.gameName,
       game_master: req.body.username,
       party_name: req.body.partyName,
-      location: req.body.location,
+      location: req.body.address,
       latitude: req.body.latitude,
       longitude: req.body.longitude,
       description: req.body.description,
       player_exp_level: req.body.experience,
-      meeting_date: req.body.meetingDate,
-      max_players: req.body.maxPlayers,
+      meeting_date: req.body.date,
+      max_players: req.body.numberOfPlayers,
       is_full: false,
       GameLibraryGameId: req.body.gameID
     }).then(function (dbGame) {

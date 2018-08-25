@@ -157,6 +157,8 @@ $(document).ready(function() {
       console.log("posted Party", newParty);
       window.location.replace("/");
     });
+
+
   });
 });
 // // Get references to page elements
