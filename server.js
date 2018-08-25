@@ -5,6 +5,7 @@ var session = require("express-session");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 var flash = require('connect-flash');
+var moment = require("moment");
 
 var db = require("./models");
 

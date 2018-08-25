@@ -1,43 +1,54 @@
-$(document).ready(function() {
-  console.log("ready!");
+$( document ).ready(function() {
+    console.log("Ready");
 });
-
 /* -----[Google Autocomplete input field ]
     Create an address field that utilizes Google Places
     address autocomplete field to properly set address data for Geo queries */
 
 function initMap() {
-  if (!document.getElementById("map")) {
-    return false;
-  }
-  var map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 44.874357, lng: -93.284416 },
-    zoom: 13
-  });
-  var card = document.getElementById("address-card");
-  var input = document.getElementById("address-input");
-  map.controls[google.maps.ControlPosition.TOP_RIGHT].push(card);
-  var autocomplete = new google.maps.places.Autocomplete(input);
+    if (!document.getElementById('map')) {
+        return false;
+    }
 
-  // Bind the map's bounds (viewport) property to the autocomplete object,
-  // so that the autocomplete requests use the current map bounds for the
-  // bounds option in the request.
-  autocomplete.bindTo("bounds", map);
+    var map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 44.874357, lng: -93.284416 },
+        zoom: 13
+    });
+    var card = document.getElementById('address-card');
+    var input = document.getElementById('address-input');
+    map.controls[google.maps.ControlPosition.TOP_RIGHT].push(card);
+    var autocomplete = new google.maps.places.Autocomplete(input);
 
-  var infowindow = new google.maps.InfoWindow();
-  var infowindowContent = document.getElementById("infowindow-content");
-  infowindow.setContent(infowindowContent);
-  console.log("InfoW: " + infowindow);
+    // Bind the map's bounds (viewport) property to the autocomplete object,
+    // so that the autocomplete requests use the current map bounds for the
+    // bounds option in the request.
+    autocomplete.bindTo('bounds', map);
 
-  // Try HTML5 geolocation.
-  if (navigator.geolocation) {
-    console.log("InfoW2: " + infowindow);
-    navigator.geolocation.getCurrentPosition(
-      function(position) {
-        var pos = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
+    var infowindow = new google.maps.InfoWindow();
+    var infowindowContent = document.getElementById('infowindow-content');
+    infowindow.setContent(infowindowContent);
+    console.log("InfoW: " + infowindow);
+
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+        console.log("InfoW2: " + infowindow);
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            infowindow.setPosition(pos);
+            infowindow.setContent('Location found.');
+            infowindow.open(map);
+            map.setCenter(pos);
+        }, function () {
+            handleLocationError(true, infowindow, map.getCenter());
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infowindow, map.getCenter());
+    }
 
         infowindow.setPosition(pos);
         infowindow.setContent("Location found.");
@@ -247,3 +258,4 @@ $(document).ready(function() {
 // // Add event listeners to the submit and delete buttons
 // $submitBtn.on("click", handleFormSubmit);
 // $exampleList.on("click", ".delete", handleDeleteBtnClick);
+

@@ -1,20 +1,20 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function (sequelize, Sequelize) {
   var Game_library = sequelize.define("Game_library", {
     game_id: {
-      type: DataTypes.INTEGER(10),
+      type: Sequelize.INTEGER(10),
       primaryKey: true,
       autoIncrement: true,
       allowNull: false,
     },
     game_name: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING,
       allowNull: false,
       validate: {
         len: [2, 50]
       }
     },
     genre: {
-      type: DataTypes.TEXT,
+      type: Sequelize.TEXT,
       allowNull: false,
       validate: {
         len: [2, 50]
@@ -23,14 +23,6 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   // Relations
-  Game_library.associate = function (models) {
-    Game_library.belongsTo(models.Users_games, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
-
   Game_library.associate = function (models) {
     Game_library.hasMany(models.Hosted_games, {
       foreignKey: {

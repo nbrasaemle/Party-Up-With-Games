@@ -1,7 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Load index page
+  // Landing page
   app.get("/", function(req, res) {
     res.render("index");
   });
@@ -10,27 +10,33 @@ module.exports = function(app) {
     res.render("index");
   });
 
+  // Signup form
   app.get("/signup", function(req, res) {
     res.render("signup");
   });
+
+  //Sign in form
   app.get("/signin", function(req, res) {
     res.render("signin");
   });
 
-  /*
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(
-      dbExample
-    ) {
-      res.render("example", {
-        example: dbExample
-      });
+  // Show list of open games by genre
+  app.get("/genres", function(req, res) {
+    res.render("genres/:genre", function(req, res) {
+      res.render("genres");
     });
-  });*/
+  });
 
-  // Render 404 page for any unmatched routes
+  //Show list of open games grouped by game
+  app.get("/games", function(req, res) {
+    res.render("games/:id", function(req, res) {
+      res.sendFile(path.join(__dirname, "../public/views/.html"));
+      //res.render("games");
+    });
+  });
+
+  /* Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
-  });
+  });*/
 };
