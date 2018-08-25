@@ -9,6 +9,7 @@ CREATE DATABASE IF NOT EXISTS gamefinder_db;
 use gamefinder_db;
 
 -- Created the table "game_library" to store values for a game dropdown field" 
+DROP TABLE IF EXISTS game_library;
 CREATE TABLE game_library (
   game_id INT AUTO_INCREMENT,
   game_name VARCHAR(50) NOT NULL,
@@ -19,6 +20,7 @@ CREATE TABLE game_library (
 );   
 
 -- Created users table to store all user id's and player avatar images.
+DROP TABLE IF EXISTS user;
 CREATE TABLE user (
 	user_id INT AUTO_INCREMENT,
     username VARCHAR (25) NOT NULL,
@@ -28,6 +30,7 @@ CREATE TABLE user (
     );
 
 -- Created "hosted games" to store new games created by a "game master" for players to choose
+DROP TABLE IF EXISTS hosted_games;
 CREATE TABLE hosted_games (
 	hosted_gameid INT AUTO_INCREMENT,
     game_master VARCHAR (100) NOT NULL,
@@ -54,6 +57,7 @@ CREATE TABLE hosted_games (
     );
   
 -- Created users_games table to create one location to store relation between each user/host and which games they are playing.
+DROP TABLE IF EXISTS user_games;
 CREATE TABLE users_games (
 	user_id INT (10) NOT NULL,
     hosted_gameid INT (10) NOT NULL,
