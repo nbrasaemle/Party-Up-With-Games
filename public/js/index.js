@@ -1,8 +1,8 @@
-$(document).ready(function() {
+$(document).ready(function () {
   //function to change navbar's buttons (there has to be a key of "signedin" to attach to the navbar-blockers)
-  $(document).on("click", "#sign-in-btn" || "#sign-up-btn", function() {});
-  //values from the party form to post
-  $("#new-party").on("click", function(event) {
+  $(document).on("click", "#sign-in-btn" || "#sign-up-btn", function () { });
+  //values from the party form to post 
+  $("#new-party").on("click", function (event) {
     event.preventDefault();
     console.log("here");
     var newParty = {
@@ -35,23 +35,39 @@ $(document).ready(function() {
     $.ajax("/api/parties", {
       type: "POST",
       data: newParty
-    }).then(function() {
+    }).then(function () {
       console.log("posted Party", newParty);
       window.location.replace("/");
     });
 
 
   });
+
+  $(document).on("click", "#join-party", function () {
+    var joinparty = {
+      username: $("#user-signedIn"),
+      HostedGameHostedGameid: $("#join-party").attr("data-hostedID-type"),
+      UserUserId: $("#user-signedIn").attr('data-user_id-type')
+    }
+
+    $.ajax("/api/joinparty", {
+      type: "POST",
+      data: joinparty
+    }).then(function () {
+      window.location.replace("/");
+    });
+  });
+
 });
 /* -----[Google Autocomplete input field ]
     Create an address field that utilizes Google Places
     address autocomplete field to properly set address data for Geo queries */
 
 function initMap() {
-    if (!document.getElementById('map')) {
-        return false;
-    }
-  };
+  if (!document.getElementById('map')) {
+    return false;
+  }
+};
 /*
     var map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 44.874357, lng: -93.284416 },

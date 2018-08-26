@@ -32,9 +32,9 @@ body {
   color: whitesmoke;
   font-weight: bold;
 }
-h3, h5, .font, .j, .fontTwo, h4{
+h3, h5, .font, .j, .fontTwo, h4, h3.profile-label, p {
  
-  color:rgb(8, 119, 255);
+  color:rgb(93, 164, 250);
 }
 .btn{
   color: aliceblue;
@@ -67,6 +67,9 @@ h2, h4, .col-sm-4, #create-party, .j, h3, h5, .font, .fontTwo  {
   z-index: 2;
   position: relative;
 }
+.vid-content{
+  padding: 40px;
+}
 /* Row */
 .card {
   margin:20px 0px;
@@ -83,9 +86,9 @@ h2, h4, .col-sm-4, #create-party, .j, h3, h5, .font, .fontTwo  {
   margin: 47px;
 }
 /* Profile Styles */
-.profile-label {
-  color:rgb(8, 119, 255);
 
+#hint{
+  margin-bottom: 70px;
 }
 /* Footer */
 .footer{
