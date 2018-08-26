@@ -33,16 +33,24 @@ module.exports = function(app) {
         is_full: false,
       }
     }).then(function (data) {
-      console.log(data);
+      //console.log(data);
       res.render("game", {
       games: data
       })
-    });
-    
+    }); 
   });
   
   app.get("/parties/:party_id", function(req,res){
-    res.render("party");
+    db.Hosted_games.findAll({
+      where: {
+        hosted_gameid: req.params.id
+      },
+      include: [{ model: db.Users_games }]
+    }).then(function (data) {
+      res.render("party", {
+        parties: data
+      });
+    });
   });
 
   app.get("/hosted-parties/:party_id", function(req, res){
