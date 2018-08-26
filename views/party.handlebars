@@ -1,15 +1,17 @@
 <div class="container not-centered">
     <div class="row">
         <div class="col-sm-12">
+            {{#parties}}
             <h1>{{party_name}}</h1>
             <hr>
-            <h4>Game: </h4> <p>{{game_name}}</p>
-            <h4>Experience Level: </h4> <p>{{player_exp_level}}</p>
-            <h4>Maximum number of players: </h4> <p>{{max_players}}</p>
+            <h4>Game: {{game_name}}</h4>
+            <h4>Experience Level: {{player_exp_level}}</h4>
+            <h4>Maximum number of players: {{max_players}}</h4>
             <h4>Party is Full? </h4> <p id="full-party"></p>
-            <h4>Date of Party: </h4> <p>{{date}}</p>
-            <h4>Time of Party: </h4> <p>{{time}}</p>
-            <h4>Location: </h4> <p>{{location}}</p>
+            <h4>Date of Party: {{date}}</h4>
+            <h4>Time of Party: {{time}}</h4>
+            <h4>Location: {{location}}</h4>
+            {{/parties}}
         </div>
     </div>
     <div class="row">
@@ -21,7 +23,7 @@
     <div class="row">
         <div class="col-sm-12">
             <h4>Want to join this party?</h4>
-            <button type="button" class="btn btn-primary" id="join-party">Join Party</button>
+            <button type="button" class="btn btn-primary" data-hostedId-type="{{#parties}}{{hosted_gameid}}{{/parties}}" id="join-party">Join Party</button>
         </div>
     </div>
 

@@ -43,10 +43,11 @@ module.exports = function(app) {
   app.get("/parties/:party_id", function(req,res){
     db.Hosted_games.findAll({
       where: {
-        hosted_gameid: req.params.id
+        hosted_gameid: req.params.party_id
       },
       include: [{ model: db.Users_games }]
     }).then(function (data) {
+      console.log(data);
       res.render("party", {
         parties: data
       });
