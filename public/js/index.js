@@ -1,6 +1,8 @@
 $(document).ready(function() {
   //function to change navbar's buttons (there has to be a key of "signedin" to attach to the navbar-blockers)
-  $(document).on("click", "#sign-in-btn" || "#sign-up-btn", function() {});
+  // $(document).on("click", "#sign-in-btn" || "#sign-up-btn", function() {});
+  $("#username").focus();
+
   //values from the party form to post
   $("#new-party").on("click", function(event) {
     event.preventDefault();
@@ -39,8 +41,6 @@ $(document).ready(function() {
       console.log("posted Party", newParty);
       window.location.replace("/");
     });
-
-
   });
 });
 /* -----[Google Autocomplete input field ]
@@ -48,10 +48,10 @@ $(document).ready(function() {
     address autocomplete field to properly set address data for Geo queries */
 
 function initMap() {
-    if (!document.getElementById('map')) {
-        return false;
-    }
-  };
+  if (!document.getElementById("map")) {
+    return false;
+  }
+}
 /*
     var map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 44.874357, lng: -93.284416 },
@@ -159,7 +159,6 @@ function initMap() {
   });
 }*/
 
-
 // // Get references to page elements
 // var gameName = $("#game-name").val().trim();
 // var partyName = $("#party-name").val().trim();;
@@ -259,4 +258,3 @@ function initMap() {
 // // Add event listeners to the submit and delete buttons
 // $submitBtn.on("click", handleFormSubmit);
 // $exampleList.on("click", ".delete", handleDeleteBtnClick);
-
