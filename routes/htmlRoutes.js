@@ -30,10 +30,10 @@ module.exports = function(app) {
         meeting_date: {
           [Op.gt]: moment().toDate()
         },
-        is_full: false
+        is_full: false,
       }
     }).then(function (data) {
-      //console.log(data);
+      console.log(data);
       res.render("games", {
       games: data
       })

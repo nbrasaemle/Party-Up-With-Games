@@ -26,6 +26,13 @@ module.exports = function (sequelize, Sequelize) {
                 notNull: true
             }
         },
+        genre: {
+            type: Sequelize.STRING(50),
+            allowNull: false,
+            validate: {
+                notNull: true
+            }
+        },
         party_name: {
             type: Sequelize.STRING(100),
             allowNull: false,
