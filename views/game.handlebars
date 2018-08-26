@@ -19,10 +19,14 @@
       <h4 class="fontTwo">You must be signed in to view the parties available</h4>
     </div>
   </div>
-  {{/unless}} {{#if user}} {{#unless partiesForGame}}
+  {{/unless}} 
+  {{#if user}} 
+  {{#unless partiesForGame}}
   <div class="row">
     <div class="col-sm-12">
-      <h4 class="fontTwo">No parties available for this game</h4>
+      <h4 class="fontTwo">Sorry, there are no parties currently available for this game!</h4>
+      <button type="button" class="btn btn-primary fontTwo" id="create-btn" data-toggle="modal" data-target="#gameModal">Create
+                a Party</button>
     </div>
   </div>
   {{/unless}}
@@ -35,4 +39,5 @@
     {{#each games}} {{> games/games-block}} {{/each}}
   </div>
   {{/if}}
+  {{> games/games-newparty}}
 </div>

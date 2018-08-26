@@ -4,9 +4,11 @@
             {{this.party_name}}
         </div>
         <div class="card-body">
-            {{!-- <h5 class="card-title">{{game_name}}</h5> --}}
-            <p class="card-text">Date:  {{this.meeting_date}}</p>
-            <a href="/parties/{{this.hosted_gameid}}" class="btn btn-primary">View Party</a>
+            <p class= "card-text"><b>Game Master:</b> {{this.game_master}}</h5>
+            <p class="card-text"><b>Date:</b>  {{this.meeting_date}}</p>
+            <p class="card-text"><b>Location</b>  {{this.location}}</p>
+            <p class="card-text"><b>Preferred Player Experience: </b> {{this.player_exp_level}}</p>
+            <p style= "text-align: right;"><a  href="/parties/{{this.hosted_gameid}}" class="btn btn-primary">View Party</a></p>
         </div>
     </div>
 </div>
