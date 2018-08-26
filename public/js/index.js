@@ -9,7 +9,8 @@ function initMap() {
     if (!document.getElementById('map')) {
         return false;
     }
-
+  };
+/*
     var map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 44.874357, lng: -93.284416 },
         zoom: 13
@@ -114,7 +115,7 @@ function initMap() {
     infowindowContent.children["place-address"].textContent = address;
     infowindow.open(map, marker);
   });
-}
+}*/
 
 $(document).ready(function() {
   //function to change navbar's buttons (there has to be a key of "signedin" to attach to the navbar-blockers)
