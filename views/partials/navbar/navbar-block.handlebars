@@ -1,11 +1,11 @@
-{{#unless signedin}}
+{{#unless user}}
 {{!-- <button type="button" class="btn btn-outline-light nav-btn" href="/signin" data-toggle="modal" data-target="#loginModal">Login</button> --}}
 <a href="/signin" class="btn btn-outline-light nav-btn">Log in</a>
 {{!-- <button class="btn btn-outline-light nav-btn" type="button" href="signup" data-toggle="modal" data-target="#signupModal">Sign Up</button> --}}
 <a href="signup" class="btn btn-outline-light nav-btn">Sign Up</a>
 {{/unless}}
 
-{{#if signedin}}
-    <a href="/dashboard" >{{username}}</a>
+{{#if user}}
+    <a href="/dashboard" data-user_id-type="{{user.user_id}}">{{user.username}}</a>
     <a href="/logout" class="btn btn-outline-light nav-btn" id="logout">Logout</a>
 {{/if}}

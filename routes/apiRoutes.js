@@ -8,7 +8,7 @@ console.log(moment());
 module.exports = function (app) {
   ////////// New routes //////////
   // Get list of all all open games by game_name and show only future, open games
-  app.get("/api/games/:id", function (req, res) {
+  app.get("/api/game/:id", function (req, res) {
     db.Hosted_games.findAll({
       where: {
         GameLibraryGameId: req.params.id,

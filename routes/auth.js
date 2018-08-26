@@ -5,7 +5,6 @@ module.exports = function(app, passport) {
   app.get("/signin", authController.signin);
   app.get("/dashboard", isLoggedIn, authController.dashboard);
   // app.get /index added for navbar control
-  app.get("/index", isLoggedIn, authController.index);
   app.get("/logout", authController.logout);
 
   app.post(

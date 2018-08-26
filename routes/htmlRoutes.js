@@ -23,7 +23,7 @@ module.exports = function(app) {
     res.render("signin");
   });
 
-  app.get("/games/:game_id", function(req, res){
+  app.get("/game/:game_id", function(req, res){
     db.Hosted_games.findAll({
       where: {
         GameLibraryGameId: req.params.game_id,
@@ -34,7 +34,7 @@ module.exports = function(app) {
       }
     }).then(function (data) {
       console.log(data);
-      res.render("games", {
+      res.render("game", {
       games: data
       })
     });
