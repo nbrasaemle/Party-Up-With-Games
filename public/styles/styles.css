@@ -98,8 +98,8 @@ h2, h4, .col-sm-4, #create-party, .j, h3, h5, .font, .fontTwo  {
   margin-top: 20px;
   min-width: 100%;
   position: fixed;
-  bottom: -10;
-  /* z-index: 1; */
+  bottom: 0;
+ 
 }
 /* .party-modal{
   z-index: 2;
