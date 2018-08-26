@@ -1,4 +1,7 @@
 var db = require("../models");
+var Sequelize = require("sequelize");
+var moment = require("moment");
+const Op = Sequelize.Op;
 
 module.exports = function(app) {
   // Landing page
@@ -19,12 +22,37 @@ module.exports = function(app) {
   app.get("/signin", function(req, res) {
     res.render("signin");
   });
-  app.get("/games/:game_id", function(req,res){
-    res.render("game");
+
+  app.get("/game/:game_id", function(req, res){
+    db.Hosted_games.findAll({
+      where: {
+        GameLibraryGameId: req.params.game_id,
+        meeting_date: {
+          [Op.gt]: moment().toDate()
+        },
+        is_full: false,
+      }
+    }).then(function (data) {
+      //console.log(data);
+      res.render("game", {
+      games: data
+      })
+    }); 
   });
+  
   app.get("/parties/:party_id", function(req,res){
-    res.render("party");
+    db.Hosted_games.findAll({
+      where: {
+        hosted_gameid: req.params.id
+      },
+      include: [{ model: db.Users_games }]
+    }).then(function (data) {
+      res.render("party", {
+        parties: data
+      });
+    });
   });
+
   app.get("/hosted-parties/:party_id", function(req, res){
     res.render("hosted-party");
   });

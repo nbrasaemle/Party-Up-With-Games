@@ -1,8 +1,14 @@
 // Make a get request to our api route that will return every "open" game by id
+$(document).ready(function() {
+    // Our new games will go into the gameContainer
+    var $gameContainer = $(".gameContainer");
+    window.onload = function () {
+        
+    })
 $.get("/api/games/:id", function (data) {
-    //console.log(json.stringify(data));
+    console.log(data);
     // For each game that our server sends us back
-    for (var i = 0; i < data.length; i++) {
+    /*for (var i = 0; i < data.length; i++) {
         var gameName = data[i].game_name;
         var gameLibID = data[i].GameLibraryGameId;
         // Create a parent div to hold game data
@@ -22,5 +28,6 @@ $.get("/api/games/:id", function (data) {
         $("#hosted-game-id-" + i).append("<h3>Preferred player experience: " + data[i].player_exp_level + "</h4>");
         $("#hosted-game-id-" + i).append("<h3>Location: " + data[i].location + "</h4>");
         $("#hosted-game-id-" + i).append("<h3>Meeting Date: " + data[i].meeting_date + "</h4>");
-    }
+    }*/
 });
+}

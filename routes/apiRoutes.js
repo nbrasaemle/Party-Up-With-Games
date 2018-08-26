@@ -8,7 +8,7 @@ console.log(moment());
 module.exports = function (app) {
   ////////// New routes //////////
   // Get list of all all open games by game_name and show only future, open games
-  app.get("/api/games/:id", function (req, res) {
+  app.get("/api/game/:id", function (req, res) {
     db.Hosted_games.findAll({
       where: {
         GameLibraryGameId: req.params.id,
@@ -82,6 +82,7 @@ module.exports = function (app) {
     db.Hosted_games.create({
       game_name: req.body.gameName,
       game_master: req.body.username,
+      genre: req.body.genre,
       party_name: req.body.partyName,
       location: req.body.address,
       latitude: req.body.latitude,
@@ -130,56 +131,4 @@ module.exports = function (app) {
         res.json(dbPost);
       });
   });
-<<<<<<< HEAD
 };
-=======
-};
-
-  ////// OLD ROUTES /////
-  /*app.get("/dashboard", function (req, res) 
-    db.Game_library.findAll({}).then(function (dbGame_library) {
-      res.json(dbGame_library);
-    });
-  
-    db.Hosted_games.findAll({}).then(function (dbHosted_games) {
-      res.json(dbHosted_games);
-    });
-  
-    db.User.findAll({}).then(function (dbUser) {
-      res.json(dbUser);
-    });
-  });
-  
-  // Get list of open hosted parties by game_ID
-  app.get("/api/hosted-parties", function (req, res) {
-    db.Hosted_games.findAll({}).then(function (dbHosted_games) {
-      res.json(dbHosted_games);
-    });
-  });
-  
-  */
-
-  // app.get("/api/:characters?", function(req, res) {
-  //   // If the user provides a specific character in the URL...
-  //   if (req.params.characters) {
-  //     // Then display the JSON for ONLY that character.
-  //     // (Note how we're using the ORM here to run our searches)
-  //     Character.findOne({
-  //       where: {
-  //         routeName: req.params.characters
-  //       }
-  //     }).then(function(result) {
-  //       return res.json(result);
-  //     });
-  //   }
-  //   else {
-  //     // Otherwise...
-  //     // Otherwise display the data for all of the characters.
-  //     // (Note how we're using Sequelize here to run our searches)
-  //     Character.findAll({}).then(function(result) {
-  //       return res.json(result);
-  //     });
-  //   }
-  // });
-
->>>>>>> various left over changes

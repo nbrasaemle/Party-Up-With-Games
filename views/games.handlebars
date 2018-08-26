@@ -1,20 +1,38 @@
-      <div class="row">
+<!-- When the User clicks on a game or the GameLibrary Nav dropdown, they go here -->
+<div class="container">
 
-        <div class="col-lg-12">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="font gameName">{{this.game_name}}</h1>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h4 class="fontTwo game Genre">Genre: {{this.genre}}</h4>
+    </div>
+  </div>
 
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title"><strong>Games</strong></h3>
-            </div>
-            <div class="card-body" id="game-Section">
-          
-            <!-- Content will go in here -->
-
-            </div>
-          </div>
-        </div>      
-      </div>
-
-      <!-- Custom Script -->
-  <script src="js/gameID.js" type="text/javascript"></script>
-  
+  {{#unless signedIn}}
+  <div class="row">
+    <div class="col-sm-12">
+      <h4 class="fontTwo">You must be signed in to view the parties available</h4>
+    </div>
+  </div>
+  {{/unless}} {{#if signedIn}} {{#unless partiesForGame}}
+  <div class="row">
+    <div class="col-sm-12">
+      <h4 class="fontTwo">No parties available for this game</h4>
+    </div>
+  </div>
+  {{/unless}}
+    <div class="row">
+    <div class="col-sm-12">
+      <h4 class="fontTwo">Parties Available for this game: </h4>
+    </div>
+  </div>
+  <div class="row wrapped gameContainer">
+    {{#each games}} {{> games/games-block}} {{/each}}
+  </div>
+  {{/if}}
+</div>
