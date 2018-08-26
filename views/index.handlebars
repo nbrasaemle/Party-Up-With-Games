@@ -11,14 +11,14 @@
       <div class="col-sm-4">
 
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-4 vid-content">
         <h2 class="font" id ="search-label">Find Your Next Adventure!</h2>
-        <form>
+        {{!-- <form>
           <div class="form-group">
             <input type="search" class="form-control fontTwo" id="gameSearch" aria-describedby="gameSearch" placeholder="Search a game">
           </div>
           <button type="button" class="btn btn-primary fontTwo">Search</button>
-        </form>
+        </form> --}}
       </div>
       <div class="col-sm-4">
       </div>
@@ -88,10 +88,10 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-12 fontTwo" id="">
+    <div class="col-sm-12 fontTwo" id="hint">
       <br>
-      <h5>Don't see a game you are searching for? <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#loginModal">Login</button>
-        or <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#signupModal">Sign Up</button> and
+      <h5>Don't see a game you are searching for?<a href="/signin" class="btn btn-dark nav-btn">Log in</a>
+        or <a href="/signup" class="btn btn-dark nav-btn">Sign Up</a>  and
         create your own!</h5>
     </div>
   </div>
