@@ -42,13 +42,18 @@ $(document).ready(function () {
 
 
   });
+
   $(document).on("click", "#join-party", function () {
-    var userId = $("#user-signedIn").attr('data-user_id-type');
-    var partyId = "";
+    var joinparty = {
+      username: $("#user-signedIn"),
+      HostedGameHostedGameid: $("#join-party").attr("data-hostedID-type"),
+      UserUserId: $("#user-signedIn").attr('data-user_id-type')
+    }
 
     $.ajax("/api/joinparty", {
-
-    }).then(function(){
+      type: "POST",
+      data: joinparty
+    }).then(function () {
       window.location.replace("/");
     });
   });
