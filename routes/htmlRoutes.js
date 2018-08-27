@@ -1,7 +1,7 @@
 var db = require("../models");
 var Sequelize = require("sequelize");
 var moment = require("moment");
-const Op = Sequelize.Op;
+var Op = Sequelize.Op;
 
 module.exports = function (app) {
   // Landing page
