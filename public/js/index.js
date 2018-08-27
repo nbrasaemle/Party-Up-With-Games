@@ -4,11 +4,12 @@ $(document).ready(function () {
   //values from the party form to post 
   $("#new-party").on("click", function (event) {
     event.preventDefault();
-    console.log("here");
     var newParty = {
-      gameName: $("#game-name")
-        .val()
-        .trim(),
+      gameName: $("#game-name option:selected").text(),
+      username: $("#uid").attr("data_username"),
+      userid: $("#uid").attr("data-user_id-type"),
+      genre: $("#game-name option:selected").attr("data-id"),
+      gameID: $("#game-name option:selected").attr("value"),
       partyName: $("#party-name")
         .val()
         .trim(),
@@ -26,18 +27,15 @@ $(document).ready(function () {
         .trim(),
       date: $("#date")
         .val()
-        .trim(),
-      time: $("#time")
-        .val()
         .trim()
     };
     console.log(newParty);
-    $.ajax("/api/parties", {
+    $.ajax("/api/newparty", {
       type: "POST",
       data: newParty
     }).then(function () {
       console.log("posted Party", newParty);
-      window.location.replace("/");
+      location.reload();
     });
   });
 

@@ -6,90 +6,38 @@ module.exports = function (sequelize, Sequelize) {
             autoIncrement: true
         },
         game_name: {
-            type: Sequelize.STRING(100),
-            allowNull: false,
-            validate: {
-                notNull: true
-            }
+            type: Sequelize.STRING(100)
         },
         game_master: {
-            type: Sequelize.STRING(100),
-            allowNull: false,
-            validate: {
-                notNull: true
-            }
+            type: Sequelize.STRING(100)
         },
         game_masterId: {
-            type: Sequelize.INTEGER(10),
-            allowNull: false,
-            validate: {
-                notNull: true
-            }
+            type: Sequelize.INTEGER(10)
         },
         genre: {
-            type: Sequelize.STRING(50),
-            allowNull: false,
-            validate: {
-                notNull: true
-            }
+            type: Sequelize.STRING(50)
         },
         party_name: {
-            type: Sequelize.STRING(100),
-            allowNull: false,
-            validate: {
-                notNull: true
-            }
+            type: Sequelize.STRING(100)
         },
         location: {
-            type: Sequelize.STRING,
-            allowNull: false,
-            validate: {
-                notNull: true
-            }
+            type: Sequelize.STRING
         },
-        latitude: {
-            type: Sequelize.INTEGER,
-            allowNull: true,
-            defaultValue: null,
-            validate: { min: -90, max: 90 }
-          },
-          longitude: {
-            type: Sequelize.INTEGER,
-            allowNull: true,
-            defaultValue: null,
-            validate: { min: -180, max: 180 }
-          },
         description: {
-            type: Sequelize.TEXT("long"),
+            type: Sequelize.TEXT("long")
         },
         player_exp_level: {
-            type: Sequelize.STRING(20),
-            allowNull: false,
-            validate: {
-                notNull: true
-            }
+            type: Sequelize.STRING(20)
         },
         meeting_date: {
-            type: Sequelize.DATE(6),
-            allowNull: false,
-            validate: {
-                notNull: true
-            }
+            type: Sequelize.DATE(6)
         },
         max_players: {
-            type: Sequelize.INTEGER(3),
-            allowNull: false,
-            validate: {
-                notNull: true
-            }
+            type: Sequelize.INTEGER(3)
         },
         is_full: {
             type: Sequelize.BOOLEAN,
-            defaultValue: false,
-            allowNull: false,
-            validate: {
-                notNull: true
-            }
+            defaultValue: false
         }
     });
 

@@ -10,31 +10,29 @@
             </div>
             <div class="modal-body">
                 <form>
-
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Game select</label>
                         <select class="form-control" id="game-name">
-                            <option value="1">Dungeons & Dragons</option>
-                            <option value="5">Magic the Gathering</option>
-                            <option value="8">Pandemic</option>
-                            <option value="3">Pathfinder</option>
-                            <option value="4">Pokemon Go</option>
-                            <option value="6">Settlers of Catan</option>
-                            <option value="2">Warhammer</option>
-                            <option value="7">Chess</option>
+                            <option value="1" data-id="Role-playing">Dungeons & Dragons</option>
+                            <option value="5" data-id="Trading Card">Magic the Gathering</option>
+                            <option value="8" data-id="Cooperative">Pandemic</option>
+                            <option value="3" data-id="Role-playing">Pathfinder</option>
+                            <option value="4" data-id="Social">Pokemon Go</option>
+                            <option value="6" data-id="Strategy">Settlers of Catan</option>
+                            <option value="2" data-id="Role-playing">Warhammer</option>
+                            <option value="7" data-id="Strategy">Chess</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="party-name">Party Name:</label>
-                        <input type="text" class="form-control" id="party-name" placeholder="name">
+                        <input type="text" class="form-control" id="party-name" placeholder="Name">
                     </div>
                     <div class="address-card" id="address-card">
                         <div class="form-row">
                             <label for="address-input" class="labelStyle">Address</label>
                         </div>
                         <div id="address-container">
-                            <input class="form-control" id="address-input" type="text" placeholder="Enter a location" onFocus="geolocate()" name="Address"
-                                required>
+                            <input class="form-control" id="address-input" type="text" placeholder="Enter a location" name="Address"required>
                         </div>
                     </div>
                     <br>
@@ -63,7 +61,7 @@
                     </div>
                     <div class="form-group">
                         <label for="time">Time:</label>
-                        <input type="text" class="form-control" placeholder="00:00">
+                        <input id="time" type="text" class="form-control" placeholder="00:00">
                     </div>
                 </form>
             </div>

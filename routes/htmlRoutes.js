@@ -96,6 +96,19 @@ module.exports = function (app) {
     });
   });
 
+    // Show list of game the User is hosting or a member of
+    app.get("/dashboard/:id", function (req, res) {
+      db.Hosted_games.findAll({
+        where: {
+          game_masterId: req.params.id
+        }
+      }).then(function (hostData) {
+        res.render("dashboard", {
+          hostData: hostData
+        })
+      });
+    });
+
   app.get("/hosted-parties/:party_id", function (req, res) {
     res.render("hosted-party");
   });

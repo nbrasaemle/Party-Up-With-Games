@@ -22,7 +22,12 @@
                 <p><b>Description:</b> {{description}}</p>
                 <p><b>Experience Level:</b> {{player_exp_level}}</p>
                 <p><b>Maximum party members:</b> {{max_players}}</p>
-                {{/parties}}
+                <p><b>Location: </b>{{location}}</p>
+                <p><b>Date:</b> {{meeting_date}}</p>
+                <br> {{/parties}}
+            </div>
+            <!-- Right section -->
+            <div class="col-sm-5">
                 <h5 class="left black">Party Members:</h5>
                 <hr>
                 <ol>
@@ -30,26 +35,10 @@
                 </ol>
                 <hr>
             </div>
-            {{#parties}}
-            <!-- Right section -->
-            <div class="col-sm-5">
-                <div class="row">
-                    <p id="address"><b>Location: </b>{{location}}</p>
-                    <p><b>Date:</b> {{meeting_date}}</p>
-                    <br>
-                    <div id="map">
-                        <div id="infowindow-content">
-                            <img src="" width="16" height="16" id="place-icon">
-                            <div id="place-name" class="title"></div>
-                            <br>
-                            <div id="place-address"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-        <p style="text-align: left;">
-            <button type="button" class="btn btn-primary right" data-hostedId-type="{{hosted_gameid}}" id="join-party">Join
+        {{#parties}}
+        <p style="text-align: right;">
+            <button type="button" class="btn btn-primary" data-hostedId-type="{{hosted_gameid}}" id="join-party">Join
                 Party
             </button>
         </p>
