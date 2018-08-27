@@ -54,6 +54,7 @@ module.exports = function (app) {
       },
       include: [{ model: db.Users_games }]
     }).then(function (data) {
+      console.log(data);
       res.render("party", {
         parties: data
       });
@@ -82,15 +83,16 @@ module.exports = function (app) {
     });
   });
 
+  /*
   //Show list of open games grouped by game
   app.get("/games", function (req, res) {
     res.render("games/:id", function (req, res) {
       res.sendFile(path.join(__dirname, "../public/views/.html"));
       //res.render("games");
     });
-  });
+  });*/
 
-   //Render 404 page for any unmatched routes
+  //Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
   });

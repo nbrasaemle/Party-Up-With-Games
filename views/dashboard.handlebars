@@ -1,50 +1,66 @@
 <div class="container">
-    <br>
-    <h2 class=" font">{{username}}'s Dashboard</h2>
-    </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <h3 class="profile-label">Parties Joined: </h3>
+    <div class="gameBanner">
+        <div class="row">
+            <div class="col-sm-12">
+                <img class="adventurebanner" src="/images/adventurebackground.jpg" alt="Game banner image">
+            </div>
         </div>
-    </div>
-    {{#unless joinedParties}}
-    <div class="row">
-        <div class="col-md-12">
-            <h4 class="font">There are no parties you are apart of at this time </h4>
-        </div>
-    </div>
-    <div class="row wrapper">
-        {{/unless}} {{#each Users_games}} {{>parties/party-block}} {{/each}}
-        <br>
-
-    </div>
-
-    <div class="row">
-        <div class="col-sm-12">
-            <h3 class="profile-label">Hosted Parties: </h3>
+        <div class="row gameInfo">
+            <h4 class="font userInfoText">{{username}}'s Dashboard</h4>
         </div>
     </div>
 
-    {{#unless hostedParties}}
-    <div class="row">
-        <div class="col-md-12">
-            <h4 class="font">You are not hosting any parties at this time </h4>
-        </div>
-    </div>
-    <div class="row wrapper">
-        {{/unless}} {{#each Hosted_games}} {{>parties/hosted-party-block}} {{/each}}
-    </div>
-    <br>
+    <div class="container playerPartiesContainer">
+        <div class="row">
+            <!-- Start Left Section -->
+            <div class="col-sm-4">
+                <h3 class="profile-label">Hosted Parties: </h3>
+                <br>
+                {{#unless hostedParties}}
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="font">You're not hosting any parties right now </p>
+                    </div>
+                </div>
+                <div class="row wrapper">
+                    {{/unless}} {{#each Hosted_games}} {{>parties/hosted-party-block}} {{/each}}
+                </div>
+            </div>
+            <!-- End left section -->
 
-    <div class="row">
-        <div class="col-sm-12 center" id="create-party">
-            <h4 class="font">Don't see a game or party to play with? Create your own!</h4>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary fontTwo" id="create-btn" data-toggle="modal" data-target="#gameModal">Create
-                a Party</button>
-            <br>
-            <br>
+            <!-- Center Section -->
+            <div class="col-sm-4 centerSection">
+                <div class="row">
+                    <div class="col-sm-12 center" id="create-party">
+                        <h3 class="font">Adventuring solo?</h3> 
+                        <br>
+                        <p>Create your own party!</p>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary fontTwo" id="create-btn" data-toggle="modal" data-target="#gameModal">Create
+                            a Party</button>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <!-- End Center Section-->
+
+            <!-- Start Right section -->
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3 class="profile-label">Parties Joined: </h3>
+                        <br>
+                    {{#unless joinedParties}}
+                            <p class="font">Oh no! You're adventuring solo!</p>
+                        {{/unless}} 
+                        {{#each Users_games}} {{>parties/party-block}} 
+                        {{/each}}
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <!-- End Right Section -->
         </div>
     </div>
-   {{> games/games-newparty}}
+    {{> games/games-newparty}}
 </div>

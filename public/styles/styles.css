@@ -4,6 +4,7 @@ HTML {
 
 body {
   background-image: url("../images/what-the-hex-dark.png");
+  color: black;
 }
 
 .list-group-item {
@@ -37,8 +38,8 @@ body {
   color: whitesmoke;
   font-weight: bold;
 }
-h3, h5, .font, .j, .fontTwo, h4{
-  color:rgb(8, 119, 255);
+h3, h5, .font, .j, .fontTwo, h4, h3.profile-label, p {
+  color:rgb(93, 164, 250);
 }
 
 .btn{
@@ -50,6 +51,7 @@ h2, h4, .col-sm-4, #create-party, .j, h3, h5, .font, .fontTwo  {
   text-align: center;
 }
 
+/* Search result styling */
 .gameBanner{
   position: relative;
   max-width: 100%;
@@ -74,6 +76,29 @@ background: rgba(0, 0, 0, 0.7);
 .gameInfoText {
   color: whitesmoke;
 }
+
+/* End Search Result styling*/
+
+/* User Dashboard styling */
+.playerPartiesContainer {
+margin-top: 40px;
+}
+.adventurebanner {
+  max-height: 300px;
+  width: 100%;
+}
+
+.userInfoText {
+  color: whitesmoke;
+  text-align: center!important;
+}
+
+.centerSection {
+  border-style: none solid none solid;
+  border-color: whitesmoke;
+}
+
+/* End User Dashboard styling*/
 
 .nav-btn{
   margin:5px;
@@ -100,6 +125,10 @@ background: rgba(0, 0, 0, 0.7);
   position: relative;
 }
 
+.vid-content{
+  padding: 40px;
+}
+
 /* Row */
 .card {
   margin:20px 0px;
@@ -121,6 +150,10 @@ background: rgba(0, 0, 0, 0.7);
 /* Profile Styles */
 .profile-label {
   color:rgb(8, 119, 255);
+}
+
+#hint {
+  margin-bottom: 70px;
 }
 
 /* Footer */
