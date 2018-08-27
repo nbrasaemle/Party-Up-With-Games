@@ -51,6 +51,10 @@ h2, h4, #create-party, .j, h3, h5, .font, .fontTwo  {
   text-align: center;
 }
 
+.container {
+  margin-bottom: 50px!important;
+}
+
 p {
   color: black;
 }
@@ -174,7 +178,7 @@ margin-top: 40px;
 }
 
 #hint {
-  margin-bottom: 70px;
+  margin-bottom: 40px;
 }
 
 /* Footer */
