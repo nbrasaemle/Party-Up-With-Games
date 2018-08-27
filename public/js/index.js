@@ -34,7 +34,7 @@ $(document).ready(function () {
       type: "POST",
       data: newParty
     }).then(function () {
-      console.log("posted Party", newParty);
+      //console.log("posted Party", newParty);
       location.reload();
     });
   });
