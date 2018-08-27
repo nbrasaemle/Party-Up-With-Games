@@ -71,7 +71,10 @@ module.exports = function (app) {
     db.Users_games.findAll({
       where: {
         UserUserId: req.params.id
-      }
+      },
+      include: [{
+        model: db.Hosted_games
+      }]
     }).then(function (userData) {
       res.json(userData);
     });
