@@ -1,9 +1,5 @@
 $(document).ready(function () {
   //function to change navbar's buttons (there has to be a key of "signedin" to attach to the navbar-blockers)
-  $("#username").focus();
-
-  //values from the party form to post
-  $("#new-party").on("click", function(event) {
   $(document).on("click", "#sign-in-btn" || "#sign-up-btn", function () { });
   //values from the party form to post 
   $("#new-party").on("click", function (event) {
@@ -43,6 +39,8 @@ $(document).ready(function () {
       console.log("posted Party", newParty);
       window.location.replace("/");
     });
+
+
   });
 
   $(document).on("click", "#join-party", function () {
@@ -66,17 +64,10 @@ $(document).ready(function () {
     address autocomplete field to properly set address data for Geo queries */
 
 function initMap() {
-<<<<<<< HEAD
-  if (!document.getElementById("map")) {
-    return false;
-  }
-}
-=======
   if (!document.getElementById('map')) {
     return false;
   }
 };
->>>>>>> 54b3f901dce2de105d92c308f412aca7790cc4b0
 /*
     var map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 44.874357, lng: -93.284416 },
@@ -184,6 +175,7 @@ function initMap() {
   });
 }*/
 
+
 // // Get references to page elements
 // var gameName = $("#game-name").val().trim();
 // var partyName = $("#party-name").val().trim();;
@@ -283,3 +275,4 @@ function initMap() {
 // // Add event listeners to the submit and delete buttons
 // $submitBtn.on("click", handleFormSubmit);
 // $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
