@@ -1,42 +1,59 @@
-<div class="container not-centered">
-    {{#parties}}
-    <div class="row">
-        <div class="col-sm-12">
-            {{#parties}}
-            <h1>{{party_name}}</h1>
-            <hr>
-            <h4>Game: {{game_name}}</h4>
-            <h4>Experience Level: {{player_exp_level}}</h4>
-            <h4>Maximum number of players: {{max_players}}</h4>
-            <h4>Party is Full? </h4> <p id="full-party"></p>
-            <h4>Date of Party: </h4> <p>{{meeting_date}}</p>
-            <h4>Location: </h4> <p>{{location}}</p>
+<div class="container">
+    <div class="gameBanner">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <img class="banner" src="{{gameLib.0.banner_img}}" alt="Game banner image">
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <h4>Description: </h4>
-            <p>{{description}}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <h4>Want to join this party?</h4>
-            <button type="button" class="btn btn-primary" data-hostedId-type="{{#parties}}{{hosted_gameid}}{{/parties}}" id="join-party">Join Party</button>
-        </div>
-    </div>
-{{/parties}}
-        <!-- Map -->
-    <div class="row">
-        <div class="col-sm-12">
-            <div id="map">
-                <div id="infowindow-content">
-                    <img src="" width="16" height="16" id="place-icon">
-                    <div id="place-name" class="title"></div>
-                    <br>
-                    <div id="place-address"></div>
-                </div>
+        <div class="row gameInfo">
+            <div class="col-sm-12">
+                <h5 class="font gameInfoText">{{gameLib.0.game_name}}</h5>
             </div>
         </div>
     </div>
+    <br> {{#parties}}
+    <div class="partyContainer">
+        <h3 id="partyheader">Party: {{party_name}}</h3>
+        <hr>
+        <div class="row">
+            <!-- Left Section -->
+            <div class="col-sm-7">
+                <p><b>Description:</b> {{description}}</p>
+                <p><b>Experience Level:</b> {{player_exp_level}}</p>
+                <p><b>Maximum party members:</b> {{max_players}}</p>
+                {{/parties}}
+                <h5 class="left black">Party Members:</h5>
+                <hr>
+                <ol>
+                    {{#userData}} {{> parties/user-block}} {{/userData}}
+                </ol>
+                <hr>
+            </div>
+            {{#parties}}
+            <!-- Right section -->
+            <div class="col-sm-5">
+                <div class="row">
+                    <p id="address"><b>Location: </b>{{location}}</p>
+                    <p><b>Date:</b> {{meeting_date}}</p>
+                    <br>
+                    <div id="map">
+                        <div id="infowindow-content">
+                            <img src="" width="16" height="16" id="place-icon">
+                            <div id="place-name" class="title"></div>
+                            <br>
+                            <div id="place-address"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p style="text-align: left;">
+            <button type="button" class="btn btn-primary right" data-hostedId-type="{{hosted_gameid}}" id="join-party">Join
+                Party
+            </button>
+        </p>
+    </div>
+    {{/parties}}
+</div>
 </div>

@@ -38,7 +38,7 @@ body {
   color: whitesmoke;
   font-weight: bold;
 }
-h3, h5, .font, .j, .fontTwo, h4, h3.profile-label, p {
+.font, .j, .fontTwo,  h3.profile-label, p {
   color:rgb(93, 164, 250);
 }
 
@@ -49,6 +49,10 @@ h3, h5, .font, .j, .fontTwo, h4, h3.profile-label, p {
 /* Aligning */
 h2, h4, .col-sm-4, #create-party, .j, h3, h5, .font, .fontTwo  {
   text-align: center;
+}
+
+p {
+  color: black;
 }
 
 /* Search result styling */
@@ -83,6 +87,7 @@ background: rgba(0, 0, 0, 0.7);
 .playerPartiesContainer {
 margin-top: 40px;
 }
+
 .adventurebanner {
   max-height: 300px;
   width: 100%;
@@ -97,8 +102,23 @@ margin-top: 40px;
   border-style: none solid none solid;
   border-color: whitesmoke;
 }
-
 /* End User Dashboard styling*/
+
+/* Start Party page styling*/
+
+.partyContainer {
+  padding: 20px 10px 20px 10px;
+  margin-bottom: 100px;
+  /*background-image: url("/images/what-the-hex.png")*/
+  background-color: whitesmoke;
+}
+
+#partyheader {
+  margin: 0px 0px 10px 0px;
+  text-align: left;
+}
+
+/* End Party Page Styling */
 
 .nav-btn{
   margin:5px;
@@ -110,6 +130,7 @@ margin-top: 40px;
   overflow: hidden;
   /* background-color:black; */
 }
+
 .jumbotron video {
   position: absolute;
   z-index: 1;
@@ -215,4 +236,12 @@ margin-top: 40px;
 
 .left {
   text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
 }

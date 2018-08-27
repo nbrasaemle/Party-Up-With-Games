@@ -26,14 +26,15 @@ module.exports = function (sequelize, Sequelize) {
     }
   });
 
-  // Relations
+  // Relations 
+  /*
   Game_library.associate = function (models) {
     Game_library.hasMany(models.Hosted_games, {
       foreignKey: {
         allowNull: false
       }
     });
-  };
+  };*/
 
   return Game_library;
 };

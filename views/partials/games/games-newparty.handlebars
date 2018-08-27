@@ -28,11 +28,14 @@
                         <label for="party-name">Party Name:</label>
                         <input type="text" class="form-control" id="party-name" placeholder="name">
                     </div>
-                    <div class="form-row">
-                        <label for="address-input" class="labelStyle">Address</label>
-                    </div>
-                    <div id="address-container">
-                        <input class="form-control" id="address-input" type="text" placeholder="Enter a location" name="Address" required>
+                    <div class="address-card" id="address-card">
+                        <div class="form-row">
+                            <label for="address-input" class="labelStyle">Address</label>
+                        </div>
+                        <div id="address-container">
+                            <input class="form-control" id="address-input" type="text" placeholder="Enter a location" onFocus="geolocate()" name="Address"
+                                required>
+                        </div>
                     </div>
                     <br>
                     <div class="form-group">
@@ -55,16 +58,12 @@
                         <input type="text" class="form-control" id="num-players" placeholder="number">
                     </div>
                     <div class="form-group">
-                        <label for="date">Date of Party:</label>
-
-                        <input type="text" class="form-control" placeholder="Date" id="date">
-
+                        <label for="date">Date:</label>
+                        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
                     </div>
                     <div class="form-group">
-                        <label for="date">Time of Party:</label>
-
-                        <input type="text" class="form-control" placeholder="Time">
-
+                        <label for="time">Time:</label>
+                        <input type="text" class="form-control" placeholder="00:00">
                     </div>
                 </form>
             </div>

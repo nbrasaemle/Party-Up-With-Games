@@ -93,6 +93,7 @@ module.exports = function (sequelize, Sequelize) {
         }
     });
 
+    /*
     // Relations
     Hosted_games.associate = function (models) {
         Hosted_games.belongsTo(models.User, {
@@ -117,6 +118,6 @@ module.exports = function (sequelize, Sequelize) {
             }
         });
     };
-    
+    */
     return Hosted_games;
 };
