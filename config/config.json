@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "Tardis1011",
     "database": "gamefinder_db",
     "host": "localhost",
     "dialect": "mysql"

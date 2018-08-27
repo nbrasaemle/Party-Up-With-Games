@@ -1,43 +1,40 @@
 <!-- When the User clicks on a game or the GameLibrary Nav dropdown, they go here -->
 <div class="container">
-
-  <div class="row">
-    <div class="col-sm-12">
-      <h1 class="font gameName">{{this.game_name}}</h1>
-      <hr>
+  <div class="gameBanner">
+    <div class="row">
+      <div class="col-sm-12">
+        <img class="banner" src={{gameLib.0.banner_img}} alt="Game banner image">
+      </div>
+    </div>
+    <div class="row gameInfo">
+      <div class="col-sm-6">
+        <h5 class="font gameInfoText">Game: {{gameLib.0.game_name}}</h5>
+      </div>
+      <div class="col-sm-6 ">
+        <h5 class="fontTwo game gameInfoText">Genre: {{gameLib.0.genre}}</h5>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <h4 class="fontTwo game Genre">Genre: {{this.genre}}</h4>
-    </div>
-  </div> 
-
   {{#unless user}}
   <div class="row">
     <div class="col-sm-12">
       <h4 class="fontTwo">You must be signed in to view the parties available</h4>
     </div>
   </div>
-  {{/unless}} 
-  {{#if user}} 
-  {{#unless partiesForGame}}
+  {{/unless}} {{#if user}} {{#unless games}}
   <div class="row">
     <div class="col-sm-12">
-      <h4 class="fontTwo">Sorry, there are no parties currently available for this game!</h4>
-      <button type="button" class="btn btn-primary fontTwo" id="create-btn" data-toggle="modal" data-target="#gameModal">Create
-                a Party</button>
+      <h4 class="fontTwo">No parties available for this game</h4>
     </div>
   </div>
-  {{/unless}}
-    <div class="row">
+  {{/unless}} {{#if games}}
+  <div class="row">
     <div class="col-sm-12">
-      <h4 class="fontTwo">Parties Available for this game: </h4>
+      <h4 class="fontTwo">Available Parties </h4>
     </div>
   </div>
-  <div class="row wrapped gameContainer">
+  <div class="gameContainer">
     {{#each games}} {{> games/games-block}} {{/each}}
   </div>
-  {{/if}}
-  {{> games/games-newparty}}
+  {{/if}} {{/if}}
 </div>

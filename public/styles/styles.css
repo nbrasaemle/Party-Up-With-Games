@@ -5,7 +5,7 @@ HTML {
 body {
   background-image: url("../images/what-the-hex-dark.png");
 }
-.container{}
+
 .list-group-item {
   line-height: 2.5;
 }
@@ -13,6 +13,11 @@ body {
 /* Backgrounds */
 .bkgd {
   /* background-image: url("../images/what-the-hex.png");  */
+}
+
+.userlink {
+  padding-right: 10px;
+  color: whitesmoke;
 }
 
 /* Font Styling: */
@@ -33,15 +38,41 @@ body {
   font-weight: bold;
 }
 h3, h5, .font, .j, .fontTwo, h4{
- 
   color:rgb(8, 119, 255);
 }
+
 .btn{
   color: aliceblue;
 }
+
 /* Aligning */
 h2, h4, .col-sm-4, #create-party, .j, h3, h5, .font, .fontTwo  {
   text-align: center;
+}
+
+.gameBanner{
+  position: relative;
+  max-width: 100%;
+}
+
+.banner {
+  max-height: 200px;
+  width: 100%;
+}
+
+.gameInfo{
+opacity: .8;
+position: absolute;
+bottom: 0;
+min-width: 100%;
+padding: 10px;
+margin-left: 0px;
+background: rgb(83,55,56); /* Fallback for older browsers without RGBA-support */
+background: rgba(0, 0, 0, 0.7);
+}
+
+.gameInfoText {
+  color: whitesmoke;
 }
 
 .nav-btn{
@@ -63,14 +94,17 @@ h2, h4, .col-sm-4, #create-party, .j, h3, h5, .font, .fontTwo  {
   object-fit: cover;
   opacity:0.8;
 }
+
 .jumbotron .jcontain {
   z-index: 2;
   position: relative;
 }
+
 /* Row */
 .card {
   margin:20px 0px;
 }
+
 /* grid wrapper */
 .wrapper {
   display: grid;
@@ -78,15 +112,17 @@ h2, h4, .col-sm-4, #create-party, .j, h3, h5, .font, .fontTwo  {
   grid-gap: 10px;
   grid-auto-rows: 100px 200px;
 }
+
 /* Signin styles */
 .sign-in {
   margin: 47px;
 }
+
 /* Profile Styles */
 .profile-label {
   color:rgb(8, 119, 255);
-
 }
+
 /* Footer */
 .footer{
   color: white;
@@ -99,27 +135,31 @@ h2, h4, .col-sm-4, #create-party, .j, h3, h5, .font, .fontTwo  {
   min-width: 100%;
   position: fixed;
   bottom: 0;
- 
 }
+
 /* .party-modal{
   z-index: 2;
 } */
+
 .not-centered {
   text-align: left;
 }
+
 .footer-text {
   font-size: 12px;
   margin-bottom:5px;
 }
+
 /* Party cards */
 .party-cards{
   color:rgb(0, 0, 92);
 }
-/*Map CSS*/
 
+/*Map CSS*/
 .list-group-item {
   line-height: 2.5;
 }
+
 .form-row {
   width: 800px;
 }
@@ -127,4 +167,19 @@ h2, h4, .col-sm-4, #create-party, .j, h3, h5, .font, .fontTwo  {
 #map {
   min-height: 200px;
   max-height: 400px;
+}
+
+.gameHeader {
+  margin-top: 20px;
+}
+
+.centerImg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.left {
+  text-align: left;
 }

@@ -19,6 +19,10 @@ module.exports = function (sequelize, Sequelize) {
       validate: {
         len: [2, 50]
       }
+    },
+    banner_img: {
+      type: Sequelize.STRING,
+      allowNull: false
     }
   });
 
