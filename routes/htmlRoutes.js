@@ -1,7 +1,7 @@
 var db = require("../models");
 var Sequelize = require("sequelize");
 var moment = require("moment");
-const Op = Sequelize.Op;
+var Op = Sequelize.Op;
 
 module.exports = function (app) {
   // Landing page
@@ -30,11 +30,22 @@ module.exports = function (app) {
         game_masterId: req.params.id
       }
     }).then(function (hostData) {
+      db.Users_games.findAll({
+        where: {
+          UserUserId: req.params.id
+        },
+        include: [{
+          model: db.Hosted_games
+        }]
+      }).then(function (userData) {
+        console.log(userData);
         res.render("dashboard", {
           hostData: hostData,
-        });
+          userData: userData
+        })
       });
     });
+  });
 
   // Search routes
   app.get("/game/:game_id", function (req, res) {

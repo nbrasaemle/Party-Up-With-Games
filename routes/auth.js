@@ -10,7 +10,7 @@ module.exports = function(app, passport) {
   app.post(
     "/signup",
     passport.authenticate("local-signup", {
-      successRedirect: "/dashboard",
+      successRedirect: "/",
       failureRedirect: "/signup",
       failureFlash: true
     })
@@ -19,7 +19,7 @@ module.exports = function(app, passport) {
   app.post(
     "/signin",
     passport.authenticate("local-signin", {
-      successRedirect: "/dashboard",
+      successRedirect: "/",
       failureRedirect: "/signin",
       failureFlash: true
     })
