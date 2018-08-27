@@ -39,6 +39,7 @@ $(document).ready(function () {
     });
   });
 
+  // Date picker logic
   var date_input = $('input[name="date"]'); //our date input has the name "date"
   var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
   var options = {
@@ -49,18 +50,20 @@ $(document).ready(function () {
   };
   date_input.datepicker(options);
 
+
+  // Joing party logic
   $(document).on("click", "#join-party", function () {
     var joinparty = {
-      username: $("#user-signedIn"),
+      username: $("#uid").attr("data_username"),
       HostedGameHostedGameid: $("#join-party").attr("data-hostedID-type"),
-      UserUserId: $("#user-signedIn").attr('data-user_id-type')
-    }
-
+      UserUserId: $("#uid").attr("data-user_id-type"),
+    };
+    console.log(joinparty);
     $.ajax("/api/joinparty", {
       type: "POST",
       data: joinparty
     }).then(function () {
-      window.location.replace("/");
+      location.reload();
     });
   });
 });

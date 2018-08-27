@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="row gameInfo">
-            <h4 class="font userInfoText">{{username}}'s Dashboard</h4>
+            <h4 class="font userInfoText">{{user.username}}'s Dashboard</h4>
         </div>
     </div>
 
@@ -15,16 +15,16 @@
             <!-- Start Left Section -->
             <div class="col-sm-4">
                 <h3 class="profile-label">Hosted Parties: </h3>
-                <br>
-                {{#unless hostedParties}}
+                <br> {{#unless hostData}}
                 <div class="row">
                     <div class="col-md-12">
                         <p class="font">You're not hosting any parties right now </p>
                     </div>
                 </div>
-                <div class="row wrapper">
-                    {{/unless}} {{#each Hosted_games}} {{>parties/hosted-party-block}} {{/each}}
-                </div>
+                {{/unless}} {{#if hostData}}
+                <div class="gameContainer">
+                    {{#each hostData}} {{> parties/hosted-party-block}} {{/each}}
+                </div>{{/if}}
             </div>
             <!-- End left section -->
 
@@ -32,7 +32,7 @@
             <div class="col-sm-4 centerSection">
                 <div class="row">
                     <div class="col-sm-12 center" id="create-party">
-                        <h3 class="font">Adventuring solo?</h3> 
+                        <h3 class="font">Adventuring solo?</h3>
                         <br>
                         <p>Create your own party!</p>
                         <!-- Button trigger modal -->
@@ -49,12 +49,13 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <h3 class="profile-label">Parties Joined: </h3>
-                        <br>
-                    {{#unless joinedParties}}
-                            <p class="font">Oh no! You're adventuring solo!</p>
-                        {{/unless}} 
-                        {{#each Users_games}} {{>parties/party-block}} 
-                        {{/each}}
+                        <br> {{#unless joinedParties}}
+                        <p class="font">Oh no! You're adventuring solo!</p>
+                        {{/unless}}
+                        <div class="gameContainer">
+                            {{#if userData}} {{> parties/partymember-block}} 
+                        {{/if}}
+                        </div>
                         <br>
                     </div>
                 </div>
@@ -63,4 +64,5 @@
         </div>
     </div>
     {{> games/games-newparty}}
-</div>
+    </div>
+    

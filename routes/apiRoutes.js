@@ -102,8 +102,8 @@ module.exports = function (app) {
   app.post("/api/joinparty", function (req, res) {
     db.Users_games.create({
       username: req.body.username,
-      HostedGameHostedGameid: req.body.hostedGameID,
-      UserUserId: req.body.userID
+      HostedGameHostedGameid: req.body.HostedGameHostedGameid,
+      UserUserId: req.body.UserUserId
     }).then(function (dbUserGame) {
       res.json(dbUserGame);
     });

@@ -47,7 +47,7 @@ body {
 }
 
 /* Aligning */
-h2, h4, .col-sm-4, #create-party, .j, h3, h5, .font, .fontTwo  {
+h2, h4, #create-party, .j, h3, h5, .font, .fontTwo  {
   text-align: center;
 }
 

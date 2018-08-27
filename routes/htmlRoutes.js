@@ -23,6 +23,19 @@ module.exports = function (app) {
     res.render("signin");
   });
 
+  // Show list of game the User is hosting or a member of
+  app.get("/dashboard/:id", function (req, res) {
+    db.Hosted_games.findAll({
+      where: {
+        game_masterId: req.params.id
+      }
+    }).then(function (hostData) {
+        res.render("dashboard", {
+          hostData: hostData,
+        });
+      });
+    });
+
   // Search routes
   app.get("/game/:game_id", function (req, res) {
     db.Game_library.findAll({
@@ -96,31 +109,9 @@ module.exports = function (app) {
     });
   });
 
-    // Show list of game the User is hosting or a member of
-    app.get("/dashboard/:id", function (req, res) {
-      db.Hosted_games.findAll({
-        where: {
-          game_masterId: req.params.id
-        }
-      }).then(function (hostData) {
-        res.render("dashboard", {
-          hostData: hostData
-        })
-      });
-    });
-
   app.get("/hosted-parties/:party_id", function (req, res) {
     res.render("hosted-party");
   });
-
-  /*
-  //Show list of open games grouped by game
-  app.get("/games", function (req, res) {
-    res.render("games/:id", function (req, res) {
-      res.sendFile(path.join(__dirname, "../public/views/.html"));
-      //res.render("games");
-    });
-  });*/
 
   //Render 404 page for any unmatched routes
   app.get("*", function (req, res) {
