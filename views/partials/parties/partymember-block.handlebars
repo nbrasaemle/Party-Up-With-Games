@@ -1,16 +1,11 @@
-<div class="row">
-    <div class="col-sm-12">
         <div class="card party-cards">
             <div class="card-header">
-                {{this.party_name}}
+                {{userData.party_name}}
             </div>
             <div class="card-body">
-                <p class="card-text"><b>Game Master:</b> {{this.game_master}}</p>
+                <p class="card-text"><b>Game:</b> {{this.game_name}}</p>
                 <p class="card-text"><b>Date:</b> {{this.meeting_date}}</p>
                 <p class="card-text"><b>Location:</b> {{this.location}}</p>
-                <p class="card-text"><b>Preferred Player Experience: </b> {{this.player_exp_level}}</p>
                 <p style="text-align: right;"><a href="/parties/{{this.hosted_gameid}}" class="btn btn-primary">View Party</a></p>
             </div>
         </div>
-    </div>
-</div>

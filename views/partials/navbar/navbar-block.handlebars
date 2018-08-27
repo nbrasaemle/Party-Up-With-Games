@@ -6,6 +6,6 @@
 {{/unless}}
 
 {{#if user}}
-    <a href="/dashboard" data-user_id-type="{{user.user_id}}" id="user-signedIn">{{user.username}}</a>
+    <a class= "userlink" id="uid" href="/dashboard/{{user.user_id}}" data-user_id-type={{user.user_id}} data_username="{{user.username}}">Welcome, {{user.username}}</a>
     <a href="/logout" class="btn btn-outline-light nav-btn" id="logout">Logout</a>
 {{/if}}

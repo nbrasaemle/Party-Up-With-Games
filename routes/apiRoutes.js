@@ -82,17 +82,17 @@ module.exports = function (app) {
     db.Hosted_games.create({
       game_name: req.body.gameName,
       game_master: req.body.username,
+      game_masterId: req.body.userid,
       genre: req.body.genre,
       party_name: req.body.partyName,
       location: req.body.address,
-      latitude: req.body.latitude,
-      longitude: req.body.longitude,
       description: req.body.description,
       player_exp_level: req.body.experience,
       meeting_date: req.body.date,
       max_players: req.body.numberOfPlayers,
       is_full: false,
-      GameLibraryGameId: req.body.gameID
+      GameLibraryGameId: req.body.gameID,
+      UserUserId: req.body.userid
     }).then(function (dbGame) {
       res.json(dbGame);
     });
@@ -102,8 +102,8 @@ module.exports = function (app) {
   app.post("/api/joinparty", function (req, res) {
     db.Users_games.create({
       username: req.body.username,
-      HostedGameHostedGameid: req.body.hostedGameID,
-      UserUserId: req.body.userID
+      HostedGameHostedGameid: req.body.HostedGameHostedGameid,
+      UserUserId: req.body.UserUserId
     }).then(function (dbUserGame) {
       res.json(dbUserGame);
     });

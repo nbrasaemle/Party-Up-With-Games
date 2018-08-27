@@ -4,8 +4,9 @@ HTML {
 
 body {
   background-image: url("../images/what-the-hex-dark.png");
+  color: black;
 }
-.container{}
+
 .list-group-item {
   line-height: 2.5;
 }
@@ -13,6 +14,11 @@ body {
 /* Backgrounds */
 .bkgd {
   /* background-image: url("../images/what-the-hex.png");  */
+}
+
+.userlink {
+  padding-right: 10px;
+  color: whitesmoke;
 }
 
 /* Font Styling: */
@@ -32,17 +38,87 @@ body {
   color: whitesmoke;
   font-weight: bold;
 }
-h3, h5, .font, .j, .fontTwo, h4, h3.profile-label, p {
- 
+.font, .j, .fontTwo,  h3.profile-label, p {
   color:rgb(93, 164, 250);
 }
+
 .btn{
   color: aliceblue;
 }
+
 /* Aligning */
-h2, h4, .col-sm-4, #create-party, .j, h3, h5, .font, .fontTwo  {
+h2, h4, #create-party, .j, h3, h5, .font, .fontTwo  {
   text-align: center;
 }
+
+p {
+  color: black;
+}
+
+/* Search result styling */
+.gameBanner{
+  position: relative;
+  max-width: 100%;
+}
+
+.banner {
+  max-height: 200px;
+  width: 100%;
+}
+
+.gameInfo{
+opacity: .8;
+position: absolute;
+bottom: 0;
+min-width: 100%;
+padding: 10px;
+margin-left: 0px;
+background: rgb(83,55,56); /* Fallback for older browsers without RGBA-support */
+background: rgba(0, 0, 0, 0.7);
+}
+
+.gameInfoText {
+  color: whitesmoke;
+}
+
+/* End Search Result styling*/
+
+/* User Dashboard styling */
+.playerPartiesContainer {
+margin-top: 40px;
+}
+
+.adventurebanner {
+  max-height: 300px;
+  width: 100%;
+}
+
+.userInfoText {
+  color: whitesmoke;
+  text-align: center!important;
+}
+
+.centerSection {
+  border-style: none solid none solid;
+  border-color: whitesmoke;
+}
+/* End User Dashboard styling*/
+
+/* Start Party page styling*/
+
+.partyContainer {
+  padding: 20px 10px 20px 10px;
+  margin-bottom: 100px;
+  /*background-image: url("/images/what-the-hex.png")*/
+  background-color: whitesmoke;
+}
+
+#partyheader {
+  margin: 0px 0px 10px 0px;
+  text-align: left;
+}
+
+/* End Party Page Styling */
 
 .nav-btn{
   margin:5px;
@@ -54,6 +130,7 @@ h2, h4, .col-sm-4, #create-party, .j, h3, h5, .font, .fontTwo  {
   overflow: hidden;
   /* background-color:black; */
 }
+
 .jumbotron video {
   position: absolute;
   z-index: 1;
@@ -63,17 +140,21 @@ h2, h4, .col-sm-4, #create-party, .j, h3, h5, .font, .fontTwo  {
   object-fit: cover;
   opacity:0.8;
 }
+
 .jumbotron .jcontain {
   z-index: 2;
   position: relative;
 }
+
 .vid-content{
   padding: 40px;
 }
+
 /* Row */
 .card {
   margin:20px 0px;
 }
+
 /* grid wrapper */
 .wrapper {
   display: grid;
@@ -81,15 +162,21 @@ h2, h4, .col-sm-4, #create-party, .j, h3, h5, .font, .fontTwo  {
   grid-gap: 10px;
   grid-auto-rows: 100px 200px;
 }
+
 /* Signin styles */
 .sign-in {
   margin: 47px;
 }
-/* Profile Styles */
 
-#hint{
+/* Profile Styles */
+.profile-label {
+  color:rgb(8, 119, 255);
+}
+
+#hint {
   margin-bottom: 70px;
 }
+
 /* Footer */
 .footer{
   color: white;
@@ -102,27 +189,31 @@ h2, h4, .col-sm-4, #create-party, .j, h3, h5, .font, .fontTwo  {
   min-width: 100%;
   position: fixed;
   bottom: 0;
- 
 }
+
 /* .party-modal{
   z-index: 2;
 } */
+
 .not-centered {
   text-align: left;
 }
+
 .footer-text {
   font-size: 12px;
   margin-bottom:5px;
 }
+
 /* Party cards */
 .party-cards{
   color:rgb(0, 0, 92);
 }
-/*Map CSS*/
 
+/*Map CSS*/
 .list-group-item {
   line-height: 2.5;
 }
+
 .form-row {
   width: 800px;
 }
@@ -130,4 +221,27 @@ h2, h4, .col-sm-4, #create-party, .j, h3, h5, .font, .fontTwo  {
 #map {
   min-height: 200px;
   max-height: 400px;
+}
+
+.gameHeader {
+  margin-top: 20px;
+}
+
+.centerImg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
 }

@@ -1,0 +1,37 @@
+<!-- When the User clicks on a game or the GameLibrary Nav dropdown, they go here -->
+<div class="container">
+  <div class="gameBanner">
+    <div class="row">
+      <div class="col-sm-12">
+        <img class="banner" src="/images/{{header}}banner.jpg" alt="Genre banner image">
+      </div>
+    </div>
+    <div class="gameInfo">
+      <h3 class="font left gameInfoText">{{header}}</h3>
+    </div>
+  </div>
+  <br>
+  {{#unless user}}
+  <div class="row">
+    <div class="col-sm-12">
+      <h4 class="fontTwo">You must be signed in to view the parties available</h4>
+    </div>
+  </div>
+  {{/unless}} {{#if user}} {{#unless genre}}
+  <div class="row">
+    <div class="col-sm-12">
+      <h4 class="fontTwo">No parties currently available for this genre</h4>
+    </div>
+  </div>
+  {{/unless}} {{#if genre}}
+  <div class="row">
+    <div class="col-sm-12">
+      <h4 class="fontTwo">Available Parties </h4>
+    </div>
+  </div>
+  <div class="gameContainer">
+    {{#each genre}} {{> games/games-block}} {{/each}}
+  </div>
+  {{/if}} {{/if}}
+</div>
+</div>

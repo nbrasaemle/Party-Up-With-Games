@@ -27,5 +27,14 @@ Object.keys(db).forEach(function(modelName) {
  
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+db.Game_library.hasMany(db.Hosted_games);
+db.Hosted_games.belongsTo(db.Game_library);
+db.Hosted_games.belongsTo(db.User);
+db.Hosted_games.hasMany(db.Users_games);
+db.User.hasMany(db.Hosted_games);
+db.User.hasMany(db.Users_games);
+db.Users_games.belongsTo(db.User);
+db.Users_games.belongsTo(db.Hosted_games);
  
 module.exports = db;

@@ -6,6 +6,7 @@ module.exports = function (sequelize, Sequelize) {
         },
     });
 
+    /*
     // Relations
     Users_games.associate = function (models) {
         Users_games.belongsTo(models.User, {
@@ -22,6 +23,6 @@ module.exports = function (sequelize, Sequelize) {
             }
         });
     };
-
+*/
     return Users_games;
 };

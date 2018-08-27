@@ -19,17 +19,22 @@ module.exports = function (sequelize, Sequelize) {
       validate: {
         len: [2, 50]
       }
+    },
+    banner_img: {
+      type: Sequelize.STRING,
+      allowNull: false
     }
   });
 
-  // Relations
+  // Relations 
+  /*
   Game_library.associate = function (models) {
     Game_library.hasMany(models.Hosted_games, {
       foreignKey: {
         allowNull: false
       }
     });
-  };
+  };*/
 
   return Game_library;
 };

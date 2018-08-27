@@ -1,7 +1,7 @@
 {{!-- Jumbotron with video --}}
 <div class="jumbotron jumbotron-fluid bkgd ">
 
-  <video autoplay loop {{!-- poster="images/catanstaticimage.jpg" --}} muted>
+  <video autoplay {{!-- loop --}} poster="images/catanstaticimage.jpg"  muted>
     <source src = "images/gameexample.mp4" type= "video/webm"> 
     <source src = "images/gameexample.ogv" type= "video/ogv">
     <source src="images/gameexample.mp4" type="video/mp4">
@@ -28,13 +28,13 @@
 {{!-- End Jumbotron --}} {{!-- Start content --}}
 <div class="container">
 
-  <div class="row">
+  <div class="row center">
     <div class="col-sm-4">
       <div class="card">
         <img class="card-img-top" src="images/game_images/d&d.jpg" alt="Card image cap">
         <div class="card-body">
           <h4 class="card-title game-label">Dungeons & Dragons</h4>
-          <a href="/games/1" data-id="" class="btn btn-primary">View Game Page</a>
+          <a href="/game/1" data-id="1" class="btn btn-primary">View Game Page</a>
         </div>
       </div>
     </div>
@@ -43,7 +43,7 @@
         <img class="card-img-top" src="images/game_images/settlers-of-catan.jpg" alt="Card image cap">
         <div class="card-body">
           <h4 class="card-title game-label">Settlers of Catan</h4>
-          <a href="/games/6" data-id="" class="btn btn-primary">View Game Page</a>
+          <a href="/game/6" data-id="6" class="btn btn-primary">View Game Page</a>
         </div>
       </div>
     </div>
@@ -52,18 +52,18 @@
         <img class="card-img-top" src="images/game_images/pokemongo-go.jpg" alt="Card image cap">
         <div class="card-body">
           <h4 class="card-title game-label">Pokemon Go</h4>
-          <a href="games/4" data-id="" class="btn btn-primary">View Game Page</a>
+          <a href="game/4" data-id="4" class="btn btn-primary">View Game Page</a>
         </div>
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row center">
     <div class="col-sm-4">
       <div class="card">
         <img class="card-img-top" src="images/game_images/magic.jpg" alt="Card image cap">
         <div class="card-body">
           <h4 class="card-title game-label">Magic the Gathering</h4>
-          <a href="games/5" data-id="" class="btn btn-primary">View Game Page</a>
+          <a href="game/5" data-id="5" class="btn btn-primary">View Game Page</a>
         </div>
       </div>
     </div>
@@ -72,16 +72,16 @@
         <img class="card-img-top" src="images/game_images/pandemic.jpg" alt="Card image cap">
         <div class="card-body">
           <h4 class="card-title game-label">Pandemic</h4>
-          <a href="games/8" data-id="" class="btn btn-primary">View Game Page</a>
+          <a href="game/8" data-id="8" class="btn btn-primary">View Game Page</a>
         </div>
       </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 ">
       <div class="card">
         <img class="card-img-top" src="images/game_images/war_hammer copy.jpg" alt="Card image cap">
         <div class="card-body">
           <h4 class="card-title game-label">Warhammer 40,000</h4>
-          <a href="games/2" data-id="" class="btn btn-primary">View Game Page</a>
+          <a href="game/2" data-id="2" class="btn btn-primary">View Game Page</a>
         </div>
       </div>
     </div>
@@ -95,6 +95,4 @@
         create your own!</h5>
     </div>
   </div>
-
-   
 </div>

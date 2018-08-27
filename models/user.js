@@ -25,6 +25,7 @@ module.exports = function(sequelize, Sequelize) {
     }
   });
 
+  /*
   // Relations
   User.associate = function(models) {
     User.hasMany(models.Hosted_games, {
@@ -40,7 +41,7 @@ module.exports = function(sequelize, Sequelize) {
         allowNull: false
       }
     });
-  };
+  };*/
 
   return User;
 };
